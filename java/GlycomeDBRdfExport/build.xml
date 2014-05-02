@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!-- ======================================================================
+     12.8.2012
+
+     GlycomeDB RDF export 
+
+     Rene Ranzinger
+     ====================================================================== -->
+<project name="project" default="jar" basedir=".">
+
+	<property name="version.number" value="0.1"/>
+	
+    <!-- APPLIC PROPERTIES -->
+	<property name="bin" location="bin"/>
+	<property name="src" location="src"/>
+	
+   <!-- INIT -->
+	<target name="init">
+		<delete dir="${bin}"/>
+		<mkdir dir="${bin}"/>
+	</target>
+
+   <!-- COMPILE -->
+	<target name="compile" depends="init">
+		<javac srcdir="${src}" destdir="${bin}" debug="on">
+			<classpath>
+				<fileset dir="${basedir}/lib"/>
+			</classpath>
+		</javac>
+		<buildnumber file="build-rdf-jar.number"/>
+	</target>
+
+	<!-- JAR -->
+    <target name="jar" depends="compile">
+        <jar destfile="glycomedb-rdf-export-${version.number}-b${build.number}.jar" basedir="${bin}">
+            <manifest>
+                <attribute name="Created-By" value="Rene Ranzinger"/>
+				<attribute name="Implementation-Title" value="GlycomeDB RDF export library"/>
+				<attribute name="Implementation-Version" value="${version.number}-b${build.number}"/>
+            </manifest>
+        </jar>	
+    </target>   
+
+</project>
