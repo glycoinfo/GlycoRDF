@@ -1,0 +1,101 @@
+@prefix glycan: <http://purl.jp/bio/12/glyco/glycan#> .
+@prefix faldo: <http://biohackathon.org/resource/faldo#> .
+@prefix uniprot: <http://purl.uniprot.org/core/Protein/> .
+@prefix psi: <http://purl.obolibrary.org/obo/ms/src/ms.obo.owl#> .
+
+<glycopeptide> a glycan:glycopeptide;
+	glycan:has_glycosylated_AA <glycosylatedAA>;
+	glycan:has_AA_sequence "ABVNDSFNXS";
+	glycan:has_reference <referenced_compound>.
+
+<glycosylatedAA> a glycan:glycosylated_AA;
+	glycan:has_amino_acid_type <asparagine>;
+	glycan:modification_type "N-glycosylation";		<== http://www.uniprot.org/core/Glycosylation_Annotation as class, make instances in our ontology
+	glycan:postion_of_amino_acid <position>;
+	glycan:has_attached_glycan <glycan1>.
+	
+<glycan1> a glycan:N-glycan.
+
+<asparagine> a glycan:amino_acid;
+
+<position> a faldo:ExactPosition;
+	position "4".
+
+<referenced_compound> a glycan:referenced_compound;
+	glycan:has_evidence <lectinExperiment>;
+	glycan:has_evidence <iGOT>.
+	
+<lectinExperiment> a glycan:evidence_binding_lectin;
+	captured_by <lectin>;
+	has_affinity_value "234".
+
+<lectin> a glycan:lectin.	
+	
+<IGOT> a glycan:evidence_IGOT;
+		glycan:used_column <column>;
+		glycan:used_lc_gradient "5%/90% over 30 min";
+		glycan:used_lc_run_time "60";
+		glycan:used_solvent "A";
+		glycan:used_solvent "B";
+		glycan:used_lc_flow_rate "2";
+		glycan:used_ms <ms_device>;
+		glycan:was_released_by glycan:PNGaseF_release;
+		glycan:has_mass_spectrum <ms2>.
+		
+<ms2> a glycan:msn_spectrum;
+	glycan:has_precursor_peak <peakx>;
+	glycan:has_ms_mode psi:1000129;					<== class 1000037
+	glycan:has_retention_time "14GU";
+	glycan:has_ms_level "2";
+    glycan:has_mass_spectrometry_peak <1234>;
+	glycan:has_mass_spectrometry_peak <1235>.
+
+<peakx> a glycan:mass_spectrometry_peak;
+	glycan:has_mz "5486";
+	glycan:has_intensity "1203546";
+	glycan:has_charge "4".
+
+<1234> a glycan:mass_spectrometry_peak;
+	glycan:has_mz "1234";
+	glycan:has_intensity "123546";
+	glycan:has_charge "2";
+	glycan:has_ms_annotation <annoation1>;
+	glycan:has_ms_annotation <annoation2>.
+		
+<1235> a glycan:mass_spectrometry_peak;
+	glycan:has_mz "2468";
+	glycan:has_intensity "1253546";
+	glycan:has_charge "1";
+	glycan:has_annotation <annoation1>.
+
+<annotation1> a ms_annotation;
+		has_fragment "ABVND";
+		has_fragment_type glycan:ms_fragment_type_y;
+		has_neutral_loss <2H2O>;
+		has_adduct <2Na>.
+		
+<2Na> a adduct;
+	has_ion glycan:adduct_ion_na;
+	has_count "2";
+
+<2H2O> a neutral_loss;
+	has_chemical_formula "H2O";
+	has_count "2".
+	
+<annotation2> a ms_annotation;
+		has_fragment "DABVN";
+		has_fragment_type glycan:ms_fragment_type_b;
+		has_adduct <2Na>.
+
+<ms_device> a glycan:mass_spectrometry_device;
+        glycan:has_ionisation_type psi:1000075;
+		glycan:has_ms_model psi:1000653;
+		glycan:has_mass_analyzer psi:1000082.
+
+<column> a glycan:column;
+	glycan:has_material "HILIC";
+	glycan:has_length "100";
+	glycan:diameter "300";
+	glycan:particle_size "5";
+	glycan:has_model "X125";
+	glycan:has_manufacturer "Waters".

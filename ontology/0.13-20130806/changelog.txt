@@ -1,0 +1,21 @@
+- adding descriptions in several places
+- correcting spelling errors
+- Delete anomeric_type and instances => existing class "anomer"
+- Add has_glycosylated_AA to glycoprotein
+- change amino_acid_type to object property has_amino_acid_type (Range amino_acid)
+- Delete has_substitutent
+- Delete has_linking_position
+- Delete origin
+- Delete has_source
+- Add is_from_source
+- Delete has_range
+- Add sulfotransferase_reaction
+- Delete instances OGlycoside NGlycoside
+
+
+Questions:
+- Do we have a rule how to discriminate between glycopeptide and glycoprotein? And is this descrimination necessary at all? In my opinion it is rather arbitrary, regardless where you define the border between a peptide and a protein.
+- Do we need references (seeAlso  etc for lectin and antibodys).
+- http://xmlns.com/foaf/0.1/name vs has_name
+- use of protein uris instead of own URI
+

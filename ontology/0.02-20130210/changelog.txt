@@ -1,0 +1,284 @@
+Domain and Range
+- has_glycosequence
+- has_glycoconjugate_sequence
+- has_aglycon
+- has_repeat
+- has_component
+- has_cardinality
+- has_cardinality_per_repeat
+- has_monosaccharide
+- has_glycan
+- published_in
+- has_structure_location
+- elucidated
+- has_source
+- has_evidence
+- has_absolute_configuration
+- has_relative_configuration
+- has_anomer
+- has_first_configuration
+- has_second_configuration
+- has_substituent_linkage
+- has_linkage_type
+- has_substituent_linkage_position
+- has_linking_position
+- has_substituent_type
+- has_average_molecular_weight
+- has_monoisotopic_molecular_weight
+- has_alias
+- is_trivial_name
+- is_primary_name
+- has_monosaccharide_notation_scheme
+- has_external_substituent
+- has_size
+- has_ring_start
+- has_ring_end
+- has_stereocode
+- has_extended_stereocode
+- has_core_modification
+- has_position
+- has_core_modification_type
+- has_motif
+- contained_in
+- has_epitope
+- has_substrate
+- catalyzed_by
+- has_keyword
+- has_manufacturer
+- has_model
+- used_mass_spectrometry_mode
+- used_mass_spectrometry_ionisation
+- used_lc_column_type
+- used_lc_column_dimension
+- used_lc_column_material
+- used_lc_run_time
+- used_solvent
+- used_lc_gradient
+- has_precursor_peak
+- has_retention_time
+- has_charge
+- has_intensity
+- has_mz
+- has_ms_ms_peak
+- has_nucleus
+- has_temperature
+- used_ph
+- has_chemical_shift
+- has_subspectrum
+- has_linkage_path
+- has_residue
+- has_carbon_number
+- is_real
+- used_multiplicity
+- has_coupling_constanct
+- is_fragment
+- has_destination_organism
+- has_version
+- hosted_by
+- in_glycan_database
+- has_abbreviation
+- has_url_template
+- has_category
+- has_taxon
+- has_organ
+- has_tissue
+- has_fluid
+- has_cell_type
+- has_cell_line
+- has_life_stage
+- has_disease
+
+Functional
+- has_repeat_attribute
+- has_repeat_count
+- has_symbol_format
+- has_cardinality
+- has_monosaccharide
+- has_glycan
+- published_in
+- elucidated
+- has_name
+- has_absolute_configuration
+- has_relative_configuration
+- has_anomer
+- has_first_configuration
+- has_second_configuration
+- has_linkage_type
+- has_substituent_linkage_position
+- has_substituent_type
+- has_average_molecular_weight
+- has_monoisotopic_molecular_weight
+- is_trivial_name
+- is_primary_name
+- has_monosaccharide_notation_scheme
+- has_size
+- has_ring_start
+- has_ring_end
+- has_stereocode
+- has_extended_stereocode
+- has_position
+- has_core_modification_type
+- has_substrate
+- has_manufacturer
+- has_model
+- used_mass_spectrometry_mode
+- used_mass_spectrometry_ionisation
+- used_lc_column_type
+- used_lc_column_dimension
+- used_lc_column_material
+- used_lc_run_time
+- used_lc_gradient
+- has_retention_time
+- has_charge
+- has_intensity
+- has_mz
+- has_temperature
+- used_ph
+- has_linkage_path
+- has_residue
+- has_carbon_number
+- is_real
+- used_multiplicity
+- is_fragment
+- has_destination_organism
+- has_version
+- hosted_by
+- in_glycan_database
+- has_abbreviation
+- has_url_template
+- has_taxon
+- has_organ
+- has_tissue
+- has_fluid
+- has_cell_type
+- has_cell_line
+- has_life_stage
+- has_disease
+
+Changes
+- sequence is not a sub class of glycan
+- repeat_attribute => has_repeat_attribute
+- repeat_count => has_repeat_count (DataProperty not ObjectProperty)
+- removed sub classes of repeat for the different repeat attributes
+- Reference => reference
+- attachment_position => has_attachment_position
+- linkage => has_linkage
+- delete in carbohydrate format and sub properties, replaced by has_carbohydrate_format and carbohydrate_format class
+- delete symbol_format and replaced with has_symbol_format and class symbol_format
+- structure_location => has_structure_location
+- name => has_name
+- has_basetype => has_first_basetype
+- anomeric => has_anomer
+- linkage_type => has_linkage_type
+- substituent_name => has_substituent_type
+- average_MW => has_average_molecular_weight
+- monisotopic_MW => has_monoisotopic_molecular_weight
+- alias_name => has_name
+- notation_scheme => has_monosaccharide_notation_scheme
+- size => has_size
+- ring_start => has_ring_start
+- ring_end => has_ring_end
+- stereocode => has_stereocode
+- ext_stereocode => has_extended_stereocode
+- generated_from and degraded from => has_substrate
+- has_affinity_to becomes data property with range anyURI
+- deleted subclasses of glycan - mix up with biological source and evidence
+- delete experimental_procedure and subclasses
+- delete has_method ... should be done using evidence + evidence type
+- ms_manufacturer => has_manufacturer
+- ms_model => has_model
+- ms_ionisation => used_mass_spectrometry_ionisation
+- lc_column_type => used_lc_column_type
+- lc_column_dimension => used_lc_column_dimension
+- lc_column_material => used_lc_column_material
+- lc_run_time => used_lc_run_time
+- solvent => used_solvent
+- lc_gradient => used_lc_gradient
+- ms_precursor_mass => has_precursor_peak
+- intensity => has_intensity
+- ms_mass => has_mz
+- nucleus => has_nucleus
+- temperature => has_temperature
+- pH => used_ph
+- singal_list => has_chemical_shift
+- linkage_path => has_linkage_path
+- residue => has_residue
+- carbon => has_carbon_number
+- real => is_real
+- multiplicity => used_multiplicity
+- coupling_list => has_coupling_constant
+- destination_organism => has_destination_organism
+- software => used_software
+- version => has_version
+- deleted modification_position
+- repeatUnit => polysaccharide
+- abbreviation => has_abbreviation
+- url_template => has_url_template
+- category => has_category
+- taxon => has_taxon
+- disease => has_disease
+
+New classes
+- repeat attribute, added instaces for min, max, exact, average, unknown
+- carbohydrate_format, added instances for all sequence formats
+- symbol_format, added instaces for formats
+- new class correlation to represent relations
+- new class source, with subclasses source_synthetic and source_natural
+- evidence, with subclasses for nmr, lc (including hplc), ms, ce
+- absolute_configuration with instances dexter leavus unknown
+- relative_configuration with instace gluco ...
+- anomer with instances alpha, beta, unknown and none
+- linkage_type with instance deoxy
+- substiutent_linkage
+- substituent_type, with instance acetyl
+- monosaccaharide_alias
+- monosaccharide_notation_scheme with instace, bcsdb
+- core_modification
+- core_modification_type, which instance deoxy
+- glycan_motif as subclass of glycan
+- glycan_epitope as subclass of glycan_motif
+- reaction with subclasses glycosyltransferase_reaction and glycosyl_hydrolases_reaction
+- synthetic_type with instances for enzymatic, chemical, chemoenzymetic	
+- evidence_type with instances ms, msms, lc, hplc, lc ms, lc msms, nmr, ce
+- mass_spectrometry_mode with instances positiv, negative and both
+- mass_spectrometry_ionisation with instances maldi and esi
+- mass_spectrometry_peak with subclasses msms_peak and profile_peak
+- software
+- resource_entry
+- glycan_database_category
+
+New properties
+- create object property has_glycan
+- has_source
+- has_evidence
+- has_absolute_configuration
+- has_relative_configuration
+- has_second_basetype
+- has_substituent_linkage
+- has_substituent_linkage_position
+- has_position
+- catalyzed_by
+- used_mass_spectrometry_mode
+- has_charge
+- has_organ
+- has_tissue
+- has_fluid
+- has_cell_type
+- has_cell_line
+- has_life_stage
+
+Questions
+- has_image URI of the image or RDF-URI and additional property has_uri
+- other symbol formats?
+- has_cardinality_per_repeat is this neccessary? If the glycan is identified as polysaccharide this is implyed. In addition how is it with structures that have more than 1 repeat?
+- what is the counterpart of has_monosaccharides for sulfates or phosphates?
+- is has_glycan functional what about other object properties of correlation
+- linkage type instances
+- substiutent type instances
+- monosaccharide_notation_scheme instaces
+- core_modification instances
+- glycan_epitope should have predicates for the function
+- should we have a class for lc columns
+- solvent a and b, is there a meaning behind a and b or just that it is a mixture
+- instances for Glycan database
+- instances for glycan_database_category

@@ -1,0 +1,2983 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <http://www.semanticweb.org/owl/owlapi/turtle#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix glycan: <http://purl.jp/bio/12/glyco/glycan#> .
+@prefix spin: <http://spinrdf.org/spin#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://purl.jp/bio/12/glyco/glycan> .
+
+<http://purl.jp/bio/12/glyco/glycan> rdf:type owl:Ontology ;
+                                     
+                                     owl:versionInfo "0.3"^^xsd:string ;
+                                     
+                                     dc:date "2013-02-10 23:11:00"^^xsd:dateTime ;
+                                     
+                                     rdfs:comment "Properties and classes used for glycan annotation."^^xsd:string ;
+                                     
+                                     dc:creator "Rene Ranzinger"^^xsd:string ,
+                                                "Shin Kawano"^^xsd:string .
+
+
+#################################################################
+#
+#    Annotation properties
+#
+#################################################################
+
+
+
+
+#################################################################
+#
+#    Datatypes
+#
+#################################################################
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://purl.jp/bio/12/glyco/glycan#contained_in
+
+glycan:contained_in rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:comment "The subject is a structurally defined motif, and the object is a glycan structure or motif."^^xsd:string ;
+                    
+                    rdfs:range glycan:glycan ;
+                    
+                    rdfs:domain glycan:glycan_motif ;
+                    
+                    owl:inverseOf glycan:has_motif .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#degraded_by
+
+glycan:degraded_by rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:comment "Subject is an enzyme, which degrades the object."^^xsd:string ;
+                   
+                   rdfs:domain glycan:glycan ;
+                   
+                   rdfs:range glycan:glycosyl_hydrolase_reaction .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#generated_by
+
+glycan:generated_by rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:comment "Subject is an enzyme, which synthesize the object."^^xsd:string ;
+                    
+                    rdfs:domain glycan:glycan ;
+                    
+                    rdfs:range glycan:glycosyltransferase_reaction .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_absolute_configuration
+
+glycan:has_absolute_configuration rdf:type owl:FunctionalProperty ,
+                                           owl:ObjectProperty ;
+                                  
+                                  rdfs:comment "Subject is a monosaccharide basetype. The object values for the predicate can be D, L or unknown."^^xsd:string ;
+                                  
+                                  rdfs:range glycan:absolute_configuration ;
+                                  
+                                  rdfs:domain glycan:basetype .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_aglycon
+
+glycan:has_aglycon rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:comment "in case of glyco_conjugate, define the aglycon"^^xsd:string ;
+                   
+                   rdfs:range glycan:aglycon ;
+                   
+                   rdfs:domain glycan:glycan .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_alias
+
+glycan:has_alias rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:comment "reference to aliases for the monosaccharide"^^xsd:string ;
+                 
+                 rdfs:domain glycan:monosaccharide ;
+                 
+                 rdfs:range glycan:monosaccharide_alias .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_anomer
+
+glycan:has_anomer rdf:type owl:FunctionalProperty ,
+                           owl:ObjectProperty ;
+                  
+                  rdfs:comment "alpha, beta, none, unknown (URI for concept to be provided). anomeric state of the basetype"^^xsd:string ;
+                  
+                  rdfs:range glycan:anomer ;
+                  
+                  rdfs:domain glycan:monosaccharide .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_carbohydrate_format
+
+glycan:has_carbohydrate_format rdf:type owl:FunctionalProperty ,
+                                        owl:ObjectProperty ;
+                               
+                               rdfs:comment "carbohydrate sequence format of the sequence given in the glycosequence instance"^^xsd:string ;
+                               
+                               rdfs:range glycan:carbohydrate_format ;
+                               
+                               rdfs:domain glycan:glycosequence .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_category
+
+glycan:has_category rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:comment "category of a glycan database"^^xsd:string ;
+                    
+                    rdfs:domain glycan:glycan_database ;
+                    
+                    rdfs:range glycan:glycan_database_category .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_component
+
+glycan:has_component rdf:type owl:ObjectProperty ;
+                     
+                     rdfs:comment "Reference to an object (of rdf:type glyco:component) that can use has_monosaccharide, has_cardinality and has_cardinality_per_repeat predicates."^^xsd:string ;
+                     
+                     rdfs:range glycan:component ;
+                     
+                     rdfs:domain glycan:glycan .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_core_modification
+
+glycan:has_core_modification rdf:type owl:ObjectProperty ;
+                             
+                             rdfs:comment "reference to another RDF describing a core modification that is present in this basetype"^^xsd:string ;
+                             
+                             rdfs:range glycan:core_modification ;
+                             
+                             rdfs:domain glycan:monosaccharide .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_core_modification_type
+
+glycan:has_core_modification_type rdf:type owl:FunctionalProperty ,
+                                           owl:ObjectProperty ;
+                                  
+                                  rdfs:comment "type of the core modifcation, can be values like alditol, acidic function, double bound etc."^^xsd:string ;
+                                  
+                                  rdfs:domain glycan:core_modification ;
+                                  
+                                  rdfs:range glycan:core_modification_type .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_destination_organism
+
+glycan:has_destination_organism rdf:type owl:FunctionalProperty ,
+                                         owl:ObjectProperty ;
+                                
+                                rdfs:comment "glycan of which organism authors wanted to synthesize or model"^^xsd:string ;
+                                
+                                rdfs:domain glycan:source_modeled ;
+                                
+                                rdfs:range glycan:source_natural ;
+                                
+                                rdfs:domain glycan:source_synthetic .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_epitope
+
+glycan:has_epitope rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:comment "The subject is a structural motif with biological relevance; subproperty of has_motif."^^xsd:string ;
+                   
+                   rdfs:domain glycan:glycan ;
+                   
+                   rdfs:range glycan:glycan_epitope ;
+                   
+                   rdfs:subPropertyOf glycan:has_motif .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_evidence
+
+glycan:has_evidence rdf:type owl:ObjectProperty ;
+                    
+                    rdfs:comment "evidence for a given set of information (glycan, publication). A evidence can be any type of experimental data."^^xsd:string ;
+                    
+                    rdfs:domain glycan:correlation ;
+                    
+                    rdfs:range glycan:evidence .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_external_substituent
+
+glycan:has_external_substituent rdf:type owl:ObjectProperty ;
+                                
+                                rdfs:comment "Reference to a glyco:substituent."^^xsd:string ;
+                                
+                                rdfs:domain glycan:monosaccharide_alias ;
+                                
+                                rdfs:range glycan:substituent .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_first_basetype
+
+glycan:has_first_basetype rdf:type owl:FunctionalProperty ,
+                                   owl:ObjectProperty ;
+                          
+                          rdfs:comment "reference to another RDF resource with URI describing the first monosaccharide basetype"^^xsd:string ;
+                          
+                          rdfs:range glycan:basetype ;
+                          
+                          rdfs:domain glycan:monosaccharide .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_glycan
+
+glycan:has_glycan rdf:type owl:FunctionalProperty ,
+                           owl:ObjectProperty ;
+                  
+                  rdfs:comment "correlates a glycan with other information that are part of the corelation instance"^^xsd:string ;
+                  
+                  rdfs:domain glycan:correlation ;
+                  
+                  rdfs:range glycan:glycan .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_glycoconjugate_sequence
+
+glycan:has_glycoconjugate_sequence rdf:type owl:ObjectProperty ;
+                                   
+                                   rdfs:comment "sequence information to object of rdf:type glyco:glycoconjugate sequence"^^xsd:string ;
+                                   
+                                   rdfs:domain glycan:glycan ;
+                                   
+                                   rdfs:range glycan:glycoconjugate_sequence .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_glycosequence
+
+glycan:has_glycosequence rdf:type owl:ObjectProperty ;
+                         
+                         rdfs:comment "glycan sequence information to object of rdf:type glyco:glycosequence"^^xsd:string ;
+                         
+                         rdfs:domain glycan:glycan ;
+                         
+                         rdfs:range glycan:glycosequence .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_image
+
+glycan:has_image rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:comment "object is a URI to a image instance describing a grafical representation of the glycan."^^xsd:string ;
+                 
+                 rdfs:domain glycan:glycan ;
+                 
+                 rdfs:range foaf:image .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_linkage_type
+
+glycan:has_linkage_type rdf:type owl:FunctionalProperty ,
+                                 owl:ObjectProperty ;
+                        
+                        rdfs:comment "GlycoCT linkage type of the monosaccharide to the substituent"^^xsd:string ;
+                        
+                        rdfs:range glycan:linkage_type ;
+                        
+                        rdfs:domain glycan:substituent_linkage .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_monosaccharide
+
+glycan:has_monosaccharide rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:comment "URI to a RDF resource describing the monosaccharide (usually MonosaccharideDB)." ;
+                          
+                          rdfs:domain glycan:component ;
+                          
+                          rdfs:range glycan:monosaccharide .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_monosaccharide_notation_scheme
+
+glycan:has_monosaccharide_notation_scheme rdf:type owl:FunctionalProperty ,
+                                                   owl:ObjectProperty ;
+                                          
+                                          rdfs:comment "One of GLYCOSCIENCES, GLYCOCT, IUPAC, CARBBANK, CFG, BCSDB, PDB, or GLYCAM, see http://www.monosaccharidedb.org/notation.action?topic=schemes"^^xsd:string ;
+                                          
+                                          rdfs:domain glycan:monosaccharide_alias ;
+                                          
+                                          rdfs:range glycan:monosaccharide_notation_scheme .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_motif
+
+glycan:has_motif rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:comment "The object is a structurally defined motif Eg. for Neo-lacto motif http://jcggdb.jp/idb/motif?id=JCGG-MOTIF3009.rdf inverse of ”contained_in”. should have sequence, composition, image ..."^^xsd:string ;
+                 
+                 rdfs:domain glycan:glycan ;
+                 
+                 rdfs:range glycan:glycan_motif .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_ms_ms_peak
+
+glycan:has_ms_ms_peak rdf:type owl:ObjectProperty ;
+                      
+                      rdfs:comment "Reference to an object that uses the following predicates: ms_mass (xsd:double), ms_intensity (xsd:double), fragment (xsd:string) which is the annotation for the peak."^^xsd:string ;
+                      
+                      rdfs:domain glycan:evidence_ms ;
+                      
+                      rdfs:range glycan:msms_peak .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_precursor_peak
+
+glycan:has_precursor_peak rdf:type owl:ObjectProperty ;
+                          
+                          rdfs:comment "URI of the precursor peak of a MS^n spectra."^^xsd:string ;
+                          
+                          rdfs:domain glycan:evidence_ms ;
+                          
+                          rdfs:range glycan:profile_peak .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_reference
+
+glycan:has_reference rdf:type owl:ObjectProperty ;
+                     
+                     rdfs:comment "literature information to object of rdf:type glyco:reference"^^xsd:string ;
+                     
+                     rdfs:domain glycan:aglycon ;
+                     
+                     rdfs:range glycan:reference .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_relative_configuration
+
+glycan:has_relative_configuration rdf:type owl:FunctionalProperty ,
+                                           owl:ObjectProperty ;
+                                  
+                                  rdfs:comment "IUPAC monosaccharide basetype information. Without absolute configuraiton D or L"^^xsd:string ;
+                                  
+                                  rdfs:domain glycan:basetype ;
+                                  
+                                  rdfs:range glycan:relative_configuration .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_repeat
+
+glycan:has_repeat rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:comment "used only if this glycan structure itself is a repeating unit. repeating unit information to object of rdf:type glyco:repeat_count"^^xsd:string ;
+                  
+                  rdfs:domain glycan:polysaccharide ;
+                  
+                  rdfs:range glycan:repeat .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_repeat_attribute
+
+glycan:has_repeat_attribute rdf:type owl:FunctionalProperty ,
+                                     owl:ObjectProperty ;
+                            
+                            rdfs:comment "(min, max, exact, average, unknown) part of repeating unit"^^xsd:string ;
+                            
+                            rdfs:domain glycan:repeat ;
+                            
+                            rdfs:range glycan:repeat_attribute .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_residue
+
+glycan:has_residue rdf:type owl:FunctionalProperty ,
+                            owl:ObjectProperty ;
+                   
+                   rdfs:comment "Monosaccharide annotation of the subspectrum."^^xsd:string ;
+                   
+                   rdfs:range glycan:monosaccharide ;
+                   
+                   rdfs:domain glycan:subspectrum .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_second_basetype
+
+glycan:has_second_basetype rdf:type owl:FunctionalProperty ,
+                                    owl:ObjectProperty ;
+                           
+                           rdfs:comment "reference to another RDF resource with URI describing the first monosaccharide basetype"^^xsd:string ;
+                           
+                           rdfs:range glycan:basetype ;
+                           
+                           rdfs:domain glycan:monosaccharide .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_signal
+
+glycan:has_signal rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:comment "Resource to a glyco:signal"^^xsd:string ;
+                  
+                  rdfs:range glycan:signal ;
+                  
+                  rdfs:domain glycan:subspectrum .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_source
+
+glycan:has_source rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:comment "Source annotation of the correlation."^^xsd:string ;
+                  
+                  rdfs:domain glycan:correlation ;
+                  
+                  rdfs:range glycan:source .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_structure
+
+glycan:has_structure rdf:type owl:ObjectProperty ;
+                     
+                     rdfs:comment "Annotation of the MS peak with a structure (MS profile)"^^xsd:string ;
+                     
+                     rdfs:range glycan:glycan ;
+                     
+                     rdfs:domain glycan:mass_spectrometry_peak .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_subspectrum
+
+glycan:has_subspectrum rdf:type owl:ObjectProperty ;
+                       
+                       rdfs:comment "List of references to glyco:subspectrum object"^^xsd:string ;
+                       
+                       rdfs:domain glycan:evidence_nmr ;
+                       
+                       rdfs:range glycan:subspectrum .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_substituent
+
+glycan:has_substituent rdf:type owl:ObjectProperty ;
+                       
+                       rdfs:comment "reference to another RDF resource with URI. The substituent is linked to the basetype in this monosaccharide."^^xsd:string ;
+                       
+                       rdfs:domain glycan:monosaccharide ;
+                       
+                       rdfs:range glycan:substituent .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_substituent_linkage
+
+glycan:has_substituent_linkage rdf:type owl:ObjectProperty ;
+                               
+                               rdfs:comment "linkage of the substituent"^^xsd:string ;
+                               
+                               rdfs:domain glycan:substituent ;
+                               
+                               rdfs:range glycan:substituent_linkage .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_substituent_type
+
+glycan:has_substituent_type rdf:type owl:FunctionalProperty ,
+                                     owl:ObjectProperty ;
+                            
+                            rdfs:comment "linkage type of the substituent"^^xsd:string ;
+                            
+                            rdfs:domain glycan:substituent ;
+                            
+                            rdfs:range glycan:substituent_type .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_substrate
+
+glycan:has_substrate rdf:type owl:FunctionalProperty ,
+                              owl:ObjectProperty ;
+                     
+                     rdfs:comment "URI of the Glycan that is consumed by a reaction."^^xsd:string ;
+                     
+                     rdfs:range glycan:glycan ;
+                     
+                     rdfs:domain glycan:reaction .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_symbol_format
+
+glycan:has_symbol_format rdf:type owl:FunctionalProperty ,
+                                  owl:ObjectProperty ;
+                         
+                         rdfs:comment "URL to explanation of symbol? The display style of the glycan. (cfg, uoxf, atoms)"^^xsd:string ;
+                         
+                         rdfs:range glycan:symbol_format ;
+                         
+                         rdfs:domain foaf:image .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_synthesis_type
+
+glycan:has_synthesis_type rdf:type owl:FunctionalProperty ,
+                                   owl:ObjectProperty ;
+                          
+                          rdfs:comment "Allows to specify the synthesis type used to generated the glycan."^^xsd:string ;
+                          
+                          rdfs:domain glycan:source_synthetic ;
+                          
+                          rdfs:range glycan:synthetic_type .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#hosted_by
+
+glycan:hosted_by rdf:type owl:FunctionalProperty ,
+                          owl:ObjectProperty ;
+                 
+                 rdfs:comment "Reference to another biological source representing the host organism."^^xsd:string ;
+                 
+                 rdfs:domain glycan:source_natural ;
+                 
+                 rdfs:range glycan:source_natural .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#in_glycan_database
+
+glycan:in_glycan_database rdf:type owl:FunctionalProperty ,
+                                   owl:ObjectProperty ;
+                          
+                          rdfs:comment "Glycan is present in the glycan database specified by the URI."^^xsd:string ;
+                          
+                          rdfs:range glycan:glycan_database ;
+                          
+                          rdfs:domain glycan:resource_entry .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#published_in
+
+glycan:published_in rdf:type owl:FunctionalProperty ,
+                             owl:ObjectProperty ;
+                    
+                    rdfs:comment "The information described by the correlation was pubished in a reference given by the URI."^^xsd:string ;
+                    
+                    rdfs:domain glycan:correlation ;
+                    
+                    rdfs:range glycan:reference .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#relation
+
+glycan:relation rdf:type owl:ObjectProperty ;
+                
+                rdfs:comment "Back-reference to the glyco:relation by which this biological source is used."^^xsd:string ;
+                
+                rdfs:range glycan:correlation ;
+                
+                rdfs:domain glycan:evidence ,
+                            glycan:glycan ,
+                            glycan:reference ,
+                            glycan:source .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_mass_spectrometry_ionisation
+
+glycan:used_mass_spectrometry_ionisation rdf:type owl:FunctionalProperty ,
+                                                  owl:ObjectProperty ;
+                                         
+                                         rdfs:comment "Ionisatin type used when producing the mass spectra."^^xsd:string ;
+                                         
+                                         rdfs:domain glycan:evidence_ms ;
+                                         
+                                         rdfs:range glycan:mass_spectrometry_ionisation .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_mass_spectrometry_mode
+
+glycan:used_mass_spectrometry_mode rdf:type owl:FunctionalProperty ,
+                                            owl:ObjectProperty ;
+                                   
+                                   rdfs:comment "MS mode used for generating the mass spectra."^^xsd:string ;
+                                   
+                                   rdfs:domain glycan:evidence_ms ;
+                                   
+                                   rdfs:range glycan:mass_spectrometry_mode .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_software
+
+glycan:used_software rdf:type owl:ObjectProperty ;
+                     
+                     rdfs:comment "Software used to model the molecule."^^xsd:string ;
+                     
+                     rdfs:range glycan:software ;
+                     
+                     rdfs:domain glycan:source_modeled .
+
+
+
+
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://purl.jp/bio/12/glyco/glycan#catalyzed_by
+
+glycan:catalyzed_by rdf:type owl:DatatypeProperty ;
+                    
+                    rdfs:comment "Subject is an enzyme, which synthesizes the object."^^xsd:string ;
+                    
+                    rdfs:domain glycan:reaction ;
+                    
+                    rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#elucidated
+
+glycan:elucidated rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  
+                  rdfs:comment "if this glycan was elucidated (rather than just studied) in this publication"^^xsd:string ;
+                  
+                  rdfs:domain glycan:correlation ;
+                  
+                  rdfs:range xsd:boolean .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_abbreviation
+
+glycan:has_abbreviation rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
+                        
+                        rdfs:comment "Abbreviation of the database"^^xsd:string ;
+                        
+                        rdfs:domain glycan:glycan_database ;
+                        
+                        rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_affinity_to
+
+glycan:has_affinity_to rdf:type owl:DatatypeProperty ;
+                       
+                       rdfs:comment "Subject is an enzyme, which synthesizes the object."^^xsd:string ;
+                       
+                       rdfs:domain glycan:glycan ;
+                       
+                       rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_attachment_position
+
+glycan:has_attachment_position rdf:type owl:DatatypeProperty ;
+                               
+                               rdfs:comment "atom number in aglycon to which the carbohydrate moiety is attached"^^xsd:string ;
+                               
+                               rdfs:domain glycan:aglycon ;
+                               
+                               rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_average_molecular_weight
+
+glycan:has_average_molecular_weight rdf:type owl:DatatypeProperty ,
+                                             owl:FunctionalProperty ;
+                                    
+                                    rdfs:comment "literal numeric with decimal, calculated from monosaccharide composition with average atomic weight"^^xsd:string ;
+                                    
+                                    rdfs:domain glycan:monosaccharide ;
+                                    
+                                    rdfs:range xsd:double .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_carbon_number
+
+glycan:has_carbon_number rdf:type owl:DatatypeProperty ,
+                                  owl:FunctionalProperty ;
+                         
+                         rdfs:comment "carbon atom number"^^xsd:string ;
+                         
+                         rdfs:domain glycan:signal ;
+                         
+                         rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_cardinality
+
+glycan:has_cardinality rdf:type owl:DatatypeProperty ,
+                                owl:FunctionalProperty ;
+                       
+                       rdfs:comment "Number of occurrences of an element (e.g. a monosaccharide) in the subject. This information can be missing in case the cardinality cannot be defined (e.g. repeat units with unknown or under-defined repeats). Missing for non-stoichiometrical residues."^^xsd:string ;
+                       
+                       rdfs:domain glycan:component ;
+                       
+                       rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_cardinality_per_repeat
+
+glycan:has_cardinality_per_repeat rdf:type owl:DatatypeProperty ,
+                                           owl:FunctionalProperty ;
+                                  
+                                  rdfs:comment "Number of occurrences of an element (e.g. a monosaccharide) in the repeat unit. Applicable to glyco:repeatUnits only. Missing for non-stoichiometrical residues."^^xsd:string ;
+                                  
+                                  rdfs:domain glycan:component ;
+                                  
+                                  rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_cell_line
+
+glycan:has_cell_line rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     
+                     rdfs:comment "Cell line information of the source"^^xsd:string ;
+                     
+                     rdfs:domain glycan:source_natural ;
+                     
+                     rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_cell_type
+
+glycan:has_cell_type rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     
+                     rdfs:comment "Cell type information of the source"^^xsd:string ;
+                     
+                     rdfs:domain glycan:source_natural ;
+                     
+                     rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_charge
+
+glycan:has_charge rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:comment "Charge state of the MS peak"^^xsd:string ;
+                  
+                  rdfs:domain glycan:mass_spectrometry_peak ;
+                  
+                  rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_chemical_shift
+
+glycan:has_chemical_shift rdf:type owl:DatatypeProperty ;
+                          
+                          rdfs:comment "chemical shift (may be multiple e.g. for CH2 groups in 1H spectra. May be missing if unknown)"^^xsd:string ;
+                          
+                          rdfs:domain glycan:evidence_nmr ,
+                                      glycan:signal ;
+                          
+                          rdfs:range xsd:double .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_coupling_constant
+
+glycan:has_coupling_constant rdf:type owl:DatatypeProperty ;
+                             
+                             rdfs:comment "values in Hz"^^xsd:string ;
+                             
+                             rdfs:domain glycan:signal ;
+                             
+                             rdfs:range xsd:double .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_disease
+
+glycan:has_disease rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:comment "MESH reference for disease"^^xsd:string ;
+                   
+                   rdfs:domain glycan:source_natural ;
+                   
+                   rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_extended_stereocode
+
+glycan:has_extended_stereocode rdf:type owl:DatatypeProperty ,
+                                        owl:FunctionalProperty ;
+                               
+                               rdfs:comment "Extended stereocode of the basetype"^^xsd:string ;
+                               
+                               rdfs:domain glycan:monosaccharide ;
+                               
+                               rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_fluid
+
+glycan:has_fluid rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:comment "either tissue or fluid"^^xsd:string ;
+                 
+                 owl:propertyDisjointWith glycan:has_tissue ;
+                 
+                 rdfs:domain glycan:source_natural ;
+                 
+                 rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_fragment
+
+glycan:has_fragment rdf:type owl:DatatypeProperty ;
+                    
+                    rdfs:comment "GlycoWorkbench sequence as peak annotation"^^xsd:string ;
+                    
+                    rdfs:domain glycan:msms_peak ;
+                    
+                    rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_intensity
+
+glycan:has_intensity rdf:type owl:DatatypeProperty ,
+                              owl:FunctionalProperty ;
+                     
+                     rdfs:comment "intensity value of the MS peak"^^xsd:string ;
+                     
+                     rdfs:domain glycan:mass_spectrometry_peak ;
+                     
+                     rdfs:range xsd:double .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_keyword
+
+glycan:has_keyword rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:comment "Keyword for  the publication."^^xsd:string ;
+                   
+                   rdfs:domain glycan:reference ;
+                   
+                   rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_life_stage
+
+glycan:has_life_stage rdf:type owl:DatatypeProperty ,
+                               owl:FunctionalProperty ;
+                      
+                      rdfs:comment "Life stage information of the source."^^xsd:string ;
+                      
+                      rdfs:domain glycan:source_natural ;
+                      
+                      rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_linkage
+
+glycan:has_linkage rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:comment "carbon number in the glycan to which the aglycon is attached"^^xsd:string ;
+                   
+                   rdfs:domain glycan:aglycon ;
+                   
+                   rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_linkage_path
+
+glycan:has_linkage_path rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
+                        
+                        rdfs:comment "path from the reducing end or from the rightmost residue in repeat"^^xsd:string ;
+                        
+                        rdfs:domain glycan:subspectrum ;
+                        
+                        rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_linking_position
+
+glycan:has_linking_position rdf:type owl:DatatypeProperty ;
+                            
+                            rdfs:comment "monosaccharide can be linked to other residues via standard glycosidic linkage at the given backbone position"^^xsd:string ;
+                            
+                            rdfs:domain glycan:monosaccharide ;
+                            
+                            rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_manufacturer
+
+glycan:has_manufacturer rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
+                        
+                        rdfs:comment "Manufacturer of the device used in the experiment."^^xsd:string ;
+                        
+                        rdfs:domain glycan:evidence ;
+                        
+                        rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_method
+
+glycan:has_method rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:comment "experimental procedures described in the article"^^xsd:string ;
+                  
+                  rdfs:domain glycan:reference ;
+                  
+                  rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_model
+
+glycan:has_model rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 
+                 rdfs:comment "Model of the device used in the experiment."^^xsd:string ;
+                 
+                 rdfs:domain glycan:evidence ;
+                 
+                 rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_monoisotopic_molecular_weight
+
+glycan:has_monoisotopic_molecular_weight rdf:type owl:DatatypeProperty ,
+                                                  owl:FunctionalProperty ;
+                                         
+                                         rdfs:comment "literal numberic with decimal, calculated from monosaccharide composition with atomic weight of monoisotope."^^xsd:string ;
+                                         
+                                         rdfs:domain glycan:monosaccharide ;
+                                         
+                                         rdfs:range xsd:double .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_mz
+
+glycan:has_mz rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+              
+              rdfs:comment "MZ value of the MS peak"^^xsd:string ;
+              
+              rdfs:domain glycan:mass_spectrometry_peak ;
+              
+              rdfs:range xsd:double .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_name
+
+glycan:has_name rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                
+                rdfs:comment "Name of the subject"^^xsd:string ;
+                
+                rdfs:domain glycan:monosaccharide ,
+                            glycan:monosaccharide_alias ,
+                            glycan:software ;
+                
+                rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_nucleus
+
+glycan:has_nucleus rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:comment "Nucleus"^^xsd:string ;
+                   
+                   rdfs:domain glycan:evidence_nmr ;
+                   
+                   rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_organ
+
+glycan:has_organ rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 
+                 rdfs:comment "Organ of the source."^^xsd:string ;
+                 
+                 rdfs:domain glycan:source_natural ;
+                 
+                 rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_position
+
+glycan:has_position rdf:type owl:DatatypeProperty ,
+                             owl:FunctionalProperty ;
+                    
+                    rdfs:comment "Carbon atom number of the monosaccharide which has been modified. "^^xsd:string ;
+                    
+                    rdfs:domain glycan:core_modification ;
+                    
+                    rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_repeat_count
+
+glycan:has_repeat_count rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
+                        
+                        rdfs:comment "value of repeat_attribute in resource, if known"^^xsd:string ;
+                        
+                        rdfs:domain glycan:repeat ;
+                        
+                        rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_retention_time
+
+glycan:has_retention_time rdf:type owl:DatatypeProperty ,
+                                   owl:FunctionalProperty ;
+                          
+                          rdfs:comment "Retention time of the molecule in the experiment"^^xsd:string ;
+                          
+                          rdfs:domain glycan:evidence_lc ,
+                                      glycan:evidence_ms ;
+                          
+                          rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_ring_end
+
+glycan:has_ring_end rdf:type owl:DatatypeProperty ,
+                             owl:FunctionalProperty ;
+                    
+                    rdfs:comment "position of last carbon involved in ring closure"^^xsd:string ;
+                    
+                    rdfs:domain glycan:monosaccharide ;
+                    
+                    rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_ring_start
+
+glycan:has_ring_start rdf:type owl:DatatypeProperty ,
+                               owl:FunctionalProperty ;
+                      
+                      rdfs:comment "position of first carbon involved in ring closure"^^xsd:string ;
+                      
+                      rdfs:domain glycan:monosaccharide ;
+                      
+                      rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_sequence
+
+glycan:has_sequence rdf:type owl:DatatypeProperty ,
+                             owl:FunctionalProperty ;
+                    
+                    rdfs:comment "Sequence of the Glycan"^^xsd:string ;
+                    
+                    rdfs:domain glycan:sequence ;
+                    
+                    rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_size
+
+glycan:has_size rdf:type owl:DatatypeProperty ,
+                         owl:FunctionalProperty ;
+                
+                rdfs:comment "number of backbone carbon atoms"^^xsd:string ;
+                
+                rdfs:domain glycan:monosaccharide ;
+                
+                rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_stereocode
+
+glycan:has_stereocode rdf:type owl:DatatypeProperty ,
+                               owl:FunctionalProperty ;
+                      
+                      rdfs:comment "Stereocode describing the backbone stereochemistry"^^xsd:string ;
+                      
+                      rdfs:domain glycan:monosaccharide ;
+                      
+                      rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_structure_location
+
+glycan:has_structure_location rdf:type owl:DatatypeProperty ;
+                              
+                              rdfs:comment "location of glycan in a publication (e.g. Figure 1)"^^xsd:string ;
+                              
+                              rdfs:domain glycan:correlation ;
+                              
+                              rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_subspectrum
+
+glycan:has_subspectrum rdf:type owl:DatatypeProperty ;
+                       
+                       rdfs:comment "List of references to glyco:subspectrum object"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_substituent_linkage_position
+
+glycan:has_substituent_linkage_position rdf:type owl:DatatypeProperty ,
+                                                 owl:FunctionalProperty ;
+                                        
+                                        rdfs:comment "Linkage position of the substituent"^^xsd:string ;
+                                        
+                                        rdfs:domain glycan:substituent_linkage ;
+                                        
+                                        rdfs:range xsd:integer .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_taxon
+
+glycan:has_taxon rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 
+                 rdfs:comment "Species information of the source."^^xsd:string ;
+                 
+                 rdfs:domain glycan:source_natural ;
+                 
+                 rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_temperature
+
+glycan:has_temperature rdf:type owl:DatatypeProperty ,
+                                owl:FunctionalProperty ;
+                       
+                       rdfs:comment "value or range in K (literal)"^^xsd:string ;
+                       
+                       rdfs:domain glycan:evidence_nmr ;
+                       
+                       rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_tissue
+
+glycan:has_tissue rdf:type owl:DatatypeProperty ,
+                           owl:FunctionalProperty ;
+                  
+                  rdfs:comment "either tissue or fluid"^^xsd:string ;
+                  
+                  rdfs:domain glycan:source_natural ;
+                  
+                  rdfs:range xsd:anyURI .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_url_template
+
+glycan:has_url_template rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
+                        
+                        rdfs:comment "xsd:string such as http://foo.bar.com/someglycan?id=%s"^^xsd:string ;
+                        
+                        rdfs:domain glycan:glycan_database ;
+                        
+                        rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_version
+
+glycan:has_version rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   
+                   rdfs:comment "Version of the software used"^^xsd:string ;
+                   
+                   rdfs:domain glycan:software ;
+                   
+                   rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#is_fragment
+
+glycan:is_fragment rdf:type owl:DatatypeProperty ,
+                            owl:FunctionalProperty ;
+                   
+                   rdfs:comment "If the synthesised or modeled molecule is just a fragment or the complete target molecule"^^xsd:string ;
+                   
+                   rdfs:domain glycan:source_modeled ,
+                               glycan:source_synthetic ;
+                   
+                   rdfs:range xsd:boolean .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#is_primary_name
+
+glycan:is_primary_name rdf:type owl:DatatypeProperty ,
+                                owl:FunctionalProperty ;
+                       
+                       rdfs:comment "indicates whether this is the name that should be used to uniquely identify this monosaccharide in the given glyco:notation_scheme, or whether this is a secondary alias name (e.g. to indicate whether a trivial name or a systematic name is to be used preferentially in case a trivial name exists for this monosaccharide)"^^xsd:string ;
+                       
+                       rdfs:domain glycan:monosaccharide_alias ;
+                       
+                       rdfs:range xsd:boolean .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#is_real
+
+glycan:is_real rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               
+               rdfs:comment "NO if a signal can not exist, rather than its unknown"^^xsd:string ;
+               
+               rdfs:domain glycan:signal ;
+               
+               rdfs:range xsd:boolean .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#is_trivial_name
+
+glycan:is_trivial_name rdf:type owl:DatatypeProperty ,
+                                owl:FunctionalProperty ;
+                       
+                       rdfs:comment "ndicates whether this is a trivial name that implies modifications, or a systematic name (e.g. KDO vs. D-3-deoxy-manOct2ulo-onic)"^^xsd:string ;
+                       
+                       rdfs:domain glycan:monosaccharide_alias ;
+                       
+                       rdfs:range xsd:boolean .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_lc_column_dimension
+
+glycan:used_lc_column_dimension rdf:type owl:DatatypeProperty ,
+                                         owl:FunctionalProperty ;
+                                
+                                rdfs:comment "width x length"^^xsd:string ;
+                                
+                                rdfs:domain glycan:evidence_lc ,
+                                            glycan:evidence_ms ;
+                                
+                                rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_lc_column_material
+
+glycan:used_lc_column_material rdf:type owl:DatatypeProperty ,
+                                        owl:FunctionalProperty ;
+                               
+                               rdfs:comment "Material of the column"^^xsd:string ;
+                               
+                               rdfs:domain glycan:evidence_lc ,
+                                           glycan:evidence_ms ;
+                               
+                               rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_lc_column_type
+
+glycan:used_lc_column_type rdf:type owl:DatatypeProperty ,
+                                    owl:FunctionalProperty ;
+                           
+                           rdfs:comment "Type of the column (e.g. PGC)"^^xsd:string ;
+                           
+                           rdfs:domain glycan:evidence_lc ,
+                                       glycan:evidence_ms ;
+                           
+                           rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_lc_gradient
+
+glycan:used_lc_gradient rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
+                        
+                        rdfs:comment "Used gradient for the experiment"^^xsd:string ;
+                        
+                        rdfs:domain glycan:evidence_lc ,
+                                    glycan:evidence_ms ;
+                        
+                        rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_lc_run_time
+
+glycan:used_lc_run_time rdf:type owl:DatatypeProperty ,
+                                 owl:FunctionalProperty ;
+                        
+                        rdfs:comment "Runtime of the LC "^^xsd:string ;
+                        
+                        rdfs:domain glycan:evidence_lc ,
+                                    glycan:evidence_ms ;
+                        
+                        rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_multiplicity
+
+glycan:used_multiplicity rdf:type owl:DatatypeProperty ,
+                                  owl:FunctionalProperty ;
+                         
+                         rdfs:comment "single-character literal (S,M,D,T ,Q) or combination"^^xsd:string ;
+                         
+                         rdfs:domain glycan:signal ;
+                         
+                         rdfs:range xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_ph
+
+glycan:used_ph rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               
+               rdfs:comment "pH of solution"^^xsd:string ;
+               
+               rdfs:domain glycan:evidence_nmr ;
+               
+               rdfs:range xsd:double .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#used_solvent
+
+glycan:used_solvent rdf:type owl:DatatypeProperty ;
+                    
+                    rdfs:comment "brutto-formula"^^xsd:string ;
+                    
+                    rdfs:domain glycan:evidence_lc ,
+                                glycan:evidence_ms ,
+                                glycan:evidence_nmr ;
+                    
+                    rdfs:range xsd:string .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://purl.jp/bio/12/glyco/glycan#absolute_configuration
+
+glycan:absolute_configuration rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf glycan:monosaccharide_property ;
+                              
+                              rdfs:comment "Absolute configuration of a monosaccharide basetype. Possible values are D, L or Unknown."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#aglycon
+
+glycan:aglycon rdf:type owl:Class ;
+               
+               rdfs:subClassOf owl:Thing ;
+               
+               rdfs:comment "Instances of this class represent the aglyca which are attached to the glycans. It contains information about the aglycan, the linkage between aglycan and glycan as also the linkage position."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#anomer
+
+glycan:anomer rdf:type owl:Class ;
+              
+              rdfs:subClassOf glycan:monosaccharide_property ;
+              
+              rdfs:comment "Anomer of a monosaccharide. Possible values are alpha, beta, Unknown or no anomer."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#basetype
+
+glycan:basetype rdf:type owl:Class ;
+                
+                rdfs:subClassOf glycan:monosaccharide_property ;
+                
+                rdfs:comment "Basetype of a monosaccharide. Each monosaccharide can have several basetypes. Each basetype consist of a absolute configuration and a relative configuration."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#biological_repeat_unit
+
+glycan:biological_repeat_unit rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf glycan:polysaccharide ;
+                              
+                              rdfs:comment "A biological repeat unit contains the monosaccharides of the repetetive oligosaccharide in the arangment as they are synthesized."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format
+
+glycan:carbohydrate_format rdf:type owl:Class ;
+                           
+                           rdfs:comment "Instances of this class are the carbohydrate sequence formats. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#chemical_repeat_unit
+
+glycan:chemical_repeat_unit rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf glycan:polysaccharide ;
+                            
+                            rdfs:comment "A chemical repeat unit is generated when a polysaccharide is chopped down for the analysis. The sequence of the oligomer is based on the reaction chopping down the glycan and my not represent the biological repeat unit."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#component
+
+glycan:component rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf owl:Thing ;
+                 
+                 rdfs:comment "Components are used to specify the composition of glycans. A component has a references to the molecule (monosaccharide, substituent) and a number of occurence for this molecule in the glycan."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification
+
+glycan:core_modification rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf glycan:monosaccharide_property ;
+                         
+                         rdfs:comment "Core modification of a monosaccharide. A core modification consist of a modification type and the postion at which this modification happened."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type
+
+glycan:core_modification_type rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf glycan:monosaccharide_property ;
+                              
+                              rdfs:comment "List of core modifications that can appear on a monosaccharide."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#correlation
+
+glycan:correlation rdf:type owl:Class ;
+                   
+                   rdfs:comment "Correlation connect the different pieces of information. It contains a glycan and other information (source, references, evidence) that belong to one data set. That allows to specify that a glycan, which has been found in a certain source was published by a certain publication. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#cyclic_glycan
+
+glycan:cyclic_glycan rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf glycan:glycan ;
+                     
+                     rdfs:comment "Cyclic glycans are a specialized form of glycans which are rarly found in nature."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence
+
+glycan:evidence rdf:type owl:Class ;
+                
+                rdfs:comment "Evidences are any kind of experimental data that can be linked to glycans. This are mainly experiments to elucidate the carbohydrate structure but can also be experiments for creating carbohydrates for example by synthesis."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_ce
+
+glycan:evidence_ce rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf glycan:evidence ;
+                   
+                   rdfs:comment "Experiments using capillary electrophoresis to identifiy carbohydrate structures."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_lc
+
+glycan:evidence_lc rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf glycan:evidence ;
+                   
+                   rdfs:comment "Experiments using LC techniques to identify carbohydrates or using them for the separation of glycans."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_ms
+
+glycan:evidence_ms rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf glycan:evidence ;
+                   
+                   rdfs:comment "Experiments using mass spectrometry to identify the carbohydrate structures."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_nmr
+
+glycan:evidence_nmr rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf glycan:evidence ;
+                    
+                    rdfs:comment "Experiments using NMR to identify the carbohydrate structure."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_type
+
+glycan:evidence_type rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf owl:Thing ;
+                     
+                     rdfs:comment "List of evidence types."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#glycan
+
+glycan:glycan rdf:type owl:Class ;
+              
+              rdfs:subClassOf owl:Thing ;
+              
+              rdfs:comment "Instances of this class represent the molecule information of the glycans. That includes chemical composition, molecular weight but also related information such as images of the glycans."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#glycan_database
+
+glycan:glycan_database rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf owl:Thing ;
+                       
+                       rdfs:comment "List of databases that glycans and related information."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#glycan_database_category
+
+glycan:glycan_database_category rdf:type owl:Class ;
+                                
+                                rdfs:subClassOf owl:Thing ;
+                                
+                                rdfs:comment "List of categories for the classification of glycan databases."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#glycan_epitope
+
+glycan:glycan_epitope rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf glycan:glycan_motif ;
+                      
+                      rdfs:comment "An glycan epitop is a special motif which has a biological function."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#glycan_motif
+
+glycan:glycan_motif rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf glycan:glycan ;
+                    
+                    rdfs:comment "A glycan motif is a sub-structure of glycans that has been named because of its often appearence or because of the biological meaning."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#glycoconjugate_sequence
+
+glycan:glycoconjugate_sequence rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf glycan:sequence ;
+                               
+                               rdfs:comment "Sequence of the Glycoconjugate that includes the carbohydrate portion and the aglyca."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#glycosequence
+
+glycan:glycosequence rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf glycan:sequence ;
+                     
+                     rdfs:comment "Sequence of the glycan in a specified sequence format."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#glycosyl_hydrolase_reaction
+
+glycan:glycosyl_hydrolase_reaction rdf:type owl:Class ;
+                                   
+                                   rdfs:subClassOf glycan:reaction ;
+                                   
+                                   rdfs:comment "Instances of this class are glycosyl hydrolase reaction which truncate glycans by releasing parts of the glycan."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#glycosyltransferase_reaction
+
+glycan:glycosyltransferase_reaction rdf:type owl:Class ;
+                                    
+                                    rdfs:subClassOf glycan:reaction ;
+                                    
+                                    rdfs:comment "Instances of this class are glycosyltransferase reactions that build up glycans by attaching addition monosaccharides to them."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#linkage_type
+
+glycan:linkage_type rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf glycan:monosaccharide_property ;
+                    
+                    rdfs:comment "List of linkage types that can appear on the monosaccharide side of monosaccharide to susbtituent linkages."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#mass_spectrometry_ionisation
+
+glycan:mass_spectrometry_ionisation rdf:type owl:Class ;
+                                    
+                                    rdfs:subClassOf owl:Thing ;
+                                    
+                                    rdfs:comment "List of ionisation techniques which are used in mass spectrometry (ESI, MALDI)."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#mass_spectrometry_mode
+
+glycan:mass_spectrometry_mode rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing ;
+                              
+                              rdfs:comment "List of modes that are used in mass spectrometry. Instances are positive mode and negative mode or a combination of both."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#mass_spectrometry_peak
+
+glycan:mass_spectrometry_peak rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf owl:Thing ;
+                              
+                              rdfs:comment "Instances represent a peak in a mass spectrometry data consisting of an m/z value, intenstity value and optional a charge state."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide
+
+glycan:monosaccharide rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf owl:Thing ;
+                      
+                      rdfs:comment "Instances of this class represent monosaccharides and their information. This monosaccharides are used to specify the composition of glycans."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_alias
+
+glycan:monosaccharide_alias rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf glycan:monosaccharide_property ;
+                            
+                            rdfs:comment "Alternative names for the monosaccharide in different databases or resources. The alias consist of the name and the monosaccharide notation scheme."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_notation_scheme
+
+glycan:monosaccharide_notation_scheme rdf:type owl:Class ;
+                                      
+                                      rdfs:subClassOf glycan:monosaccharide_property ;
+                                      
+                                      rdfs:comment "List of monosaccharide notation scheme. One monosaccharide can have several different names depending on the notation scheme. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_property
+
+glycan:monosaccharide_property rdf:type owl:Class ;
+                               
+                               rdfs:comment "Class that contains all monosaccharides properties such as anomer, basetype etc."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#msms_peak
+
+glycan:msms_peak rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf glycan:mass_spectrometry_peak ;
+                 
+                 rdfs:comment "Mass spec peak in an MS^n spectra which will be annoted with a glycan fragment."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#polysaccharide
+
+glycan:polysaccharide rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf glycan:glycan ;
+                      
+                      rdfs:comment "Polysaccharides are specialized glyans that consist of large repetitive oligosaccharide parts. Often the exact number of repetition can not be specified because the experimental technique does not allow this or because number of repetition in nature varies."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#profile_peak
+
+glycan:profile_peak rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf glycan:mass_spectrometry_peak ;
+                    
+                    rdfs:comment "Mass spec peak in an MS profiling spectra which will be annotated with a complete glycan."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#reaction
+
+glycan:reaction rdf:type owl:Class ;
+                
+                rdfs:comment "Class for the reaction the create or degrade glycans."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#reference
+
+glycan:reference rdf:type owl:Class ;
+                 
+                 rdfs:comment "References are publications related to the glycan structures. This can be journal papers, book chapters, conference articles and so on."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#relative_configuration
+
+glycan:relative_configuration rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf glycan:monosaccharide_property ;
+                              
+                              rdfs:comment "List of relative monosaccharide configurations according to IUPAC."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#repeat
+
+glycan:repeat rdf:type owl:Class ;
+              
+              rdfs:subClassOf owl:Thing ;
+              
+              rdfs:comment "A repeat is a property of a polysaccharide that specifies how often the oligomer part is repeated to form the polysaccharide."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#repeat_attribute
+
+glycan:repeat_attribute rdf:type owl:Class ;
+                        
+                        rdfs:comment "List of possible attributes to specify the repeat count. Possible values are average, exact, minimum, maximum or unknown."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#resource_entry
+
+glycan:resource_entry rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf owl:Thing ;
+                      
+                      rdfs:comment "A resource entry describes an entry about the glycan in another database."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#sequence
+
+glycan:sequence rdf:type owl:Class ;
+                
+                rdfs:subClassOf owl:Thing ;
+                
+                rdfs:comment "A sequence is the textual description of a molecule. For example FASTA sequences for Amino acides. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#signal
+
+glycan:signal rdf:type owl:Class ;
+              
+              rdfs:subClassOf owl:Thing ;
+              
+              rdfs:comment "A signal is a NMR data point."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#software
+
+glycan:software rdf:type owl:Class ;
+                
+                rdfs:comment "Software that has been utilized for the glycan. For example software used to model the glycan."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#source
+
+glycan:source rdf:type owl:Class ;
+              
+              rdfs:subClassOf owl:Thing ;
+              
+              rdfs:comment "Source of the glycan. The source can be a biological organism that the glycan was found in, a synthesis procedure trying to reproduce a natural glycan or a modelling approach for the glycan."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#source_modeled
+
+glycan:source_modeled rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf glycan:source ;
+                      
+                      rdfs:comment "Class for modeled source. Instance contain information about the software used for modeling and the target organism."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#source_natural
+
+glycan:source_natural rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf glycan:source ;
+                      
+                      rdfs:comment "Class for sources from biological organism. Instances contain informaiton about the species, cell type, tissue and so on."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#source_synthetic
+
+glycan:source_synthetic rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf glycan:source ;
+                        
+                        rdfs:comment "Class for source for synthetic glycans. In contains informaiton about the type of synthesis approach used and if applicalbe the original biological source that was tried to mimic. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#subspectrum
+
+glycan:subspectrum rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf owl:Thing ;
+                   
+                   rdfs:comment "Subspectrum of NMR data. It contains the annotated signals."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent
+
+glycan:substituent rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf glycan:monosaccharide_property ;
+                   
+                   rdfs:comment "Substition of a monosaccharide by another molecule. The substituent consist of the substituent type and the linkage between monosaccharide and substituent."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_linkage
+
+glycan:substituent_linkage rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf glycan:monosaccharide_property ;
+                           
+                           rdfs:comment "Linkage between a monosaccharide and a substituent. It consist of the linkage position on the monosaccharide side and the linkage type."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type
+
+glycan:substituent_type rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf glycan:monosaccharide_property ;
+                        
+                        rdfs:comment "List of substituent types possible on monosaccharides."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#symbol_format
+
+glycan:symbol_format rdf:type owl:Class ;
+                     
+                     rdfs:comment "Grafical symbol formats used to represent glycans. This includes the symbol format form the CFG and from UOXF."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#synthetic_type
+
+glycan:synthetic_type rdf:type owl:Class ;
+                      
+                      rdfs:comment "Type of synthesis used for creating the glycan. Posible values are chemical synthesis, enzymatic synthesis and chemoenzymetic synthesis."^^xsd:string .
+
+
+
+###  http://xmlns.com/foaf/0.1/image
+
+foaf:image rdf:type owl:Class ;
+           
+           rdfs:subClassOf owl:Thing ;
+           
+           rdfs:comment "Graphical representation of the molecule. "^^xsd:string .
+
+
+
+
+
+#################################################################
+#
+#    Individuals
+#
+#################################################################
+
+
+###  http://purl.jp/bio/12/glyco/glycan#absolute_configuration_dexter
+
+glycan:absolute_configuration_dexter rdf:type glycan:absolute_configuration ,
+                                              owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#absolute_configuration_laevus
+
+glycan:absolute_configuration_laevus rdf:type glycan:absolute_configuration ,
+                                              owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#absolute_configuration_unknown
+
+glycan:absolute_configuration_unknown rdf:type glycan:absolute_configuration ,
+                                               owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#allo
+
+glycan:allo rdf:type glycan:relative_configuration ,
+                     owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#altro
+
+glycan:altro rdf:type glycan:relative_configuration ,
+                      owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#anomer_alpha
+
+glycan:anomer_alpha rdf:type glycan:anomer ,
+                             owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#anomer_beta
+
+glycan:anomer_beta rdf:type glycan:anomer ,
+                            owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#anomer_none
+
+glycan:anomer_none rdf:type glycan:anomer ,
+                            owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#anomer_unknown
+
+glycan:anomer_unknown rdf:type glycan:anomer ,
+                               owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#arabino
+
+glycan:arabino rdf:type glycan:relative_configuration ,
+                        owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format_carbbank
+
+glycan:carbohydrate_format_carbbank rdf:type glycan:carbohydrate_format ,
+                                             owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format_csdb
+
+glycan:carbohydrate_format_csdb rdf:type glycan:carbohydrate_format ,
+                                         owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format_glycoct
+
+glycan:carbohydrate_format_glycoct rdf:type glycan:carbohydrate_format ,
+                                            owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format_glyde2
+
+glycan:carbohydrate_format_glyde2 rdf:type glycan:carbohydrate_format ,
+                                           owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format_iupac_condensed
+
+glycan:carbohydrate_format_iupac_condensed rdf:type glycan:carbohydrate_format ,
+                                                    owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format_iupac_extended
+
+glycan:carbohydrate_format_iupac_extended rdf:type glycan:carbohydrate_format ,
+                                                   owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format_iupac_short
+
+glycan:carbohydrate_format_iupac_short rdf:type glycan:carbohydrate_format ,
+                                                owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format_kcf
+
+glycan:carbohydrate_format_kcf rdf:type glycan:carbohydrate_format ,
+                                        owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format_linearcode
+
+glycan:carbohydrate_format_linearcode rdf:type glycan:carbohydrate_format ,
+                                               owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#carbohydrate_format_linucs
+
+glycan:carbohydrate_format_linucs rdf:type glycan:carbohydrate_format ,
+                                           owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_acid
+
+glycan:core_modification_type_acid rdf:type glycan:core_modification_type ,
+                                            owl:NamedIndividual ;
+                                   
+                                   rdfs:comment "Carboxyl (COOH) group."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_aldi
+
+glycan:core_modification_type_aldi rdf:type glycan:core_modification_type ,
+                                            owl:NamedIndividual ;
+                                   
+                                   rdfs:comment "Alditol: Reduction of the aldehyde group to CH2OH."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_anhydro
+
+glycan:core_modification_type_anhydro rdf:type glycan:core_modification_type ,
+                                               owl:NamedIndividual ;
+                                      
+                                      rdfs:comment "Intramolecular anhydride."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_deoxy
+
+glycan:core_modification_type_deoxy rdf:type glycan:core_modification_type ,
+                                             owl:NamedIndividual ;
+                                    
+                                    rdfs:comment "Deoxygenation of a position: The OH group is removed and replaced by a hydrogen atom."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_en
+
+glycan:core_modification_type_en rdf:type glycan:core_modification_type ,
+                                          owl:NamedIndividual ;
+                                 
+                                 rdfs:comment "Double bond in the basetype backbone. This modification implies that - unless explicitly stated with a deoxy modification - hydroxyl groups are preserved."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_enx
+
+glycan:core_modification_type_enx rdf:type glycan:core_modification_type ,
+                                           owl:NamedIndividual ;
+                                  
+                                  rdfs:comment "Double bond in the basetype backbone with unknown deoxygenation pattern."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_geminal
+
+glycan:core_modification_type_geminal rdf:type glycan:core_modification_type ,
+                                               owl:NamedIndividual ;
+                                      
+                                      rdfs:comment "Loss of stereochemistry due to identical substituents with DEOXY and H_LOSE linkage types at a single position."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_keto
+
+glycan:core_modification_type_keto rdf:type glycan:core_modification_type ,
+                                            owl:NamedIndividual ;
+                                   
+                                   rdfs:comment "A carbonyl group in the open chain version of a monosaccharide. This modification is omitted if it is only present at position 1 (standard aldose)."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_sp
+
+glycan:core_modification_type_sp rdf:type glycan:core_modification_type ,
+                                          owl:NamedIndividual ;
+                                 
+                                 rdfs:comment "Triple bond to a substituent."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_sp2
+
+glycan:core_modification_type_sp2 rdf:type glycan:core_modification_type ,
+                                           owl:NamedIndividual ;
+                                  
+                                  rdfs:comment "Double bond to a substituent."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#core_modification_type_yn
+
+glycan:core_modification_type_yn rdf:type glycan:core_modification_type ,
+                                          owl:NamedIndividual ;
+                                 
+                                 rdfs:comment "Triple bond in the basetype backbone."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#erythro
+
+glycan:erythro rdf:type glycan:relative_configuration ,
+                        owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_type_ce
+
+glycan:evidence_type_ce rdf:type glycan:evidence_type ,
+                                 owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_type_hplc
+
+glycan:evidence_type_hplc rdf:type glycan:evidence_type ,
+                                   owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_type_lc
+
+glycan:evidence_type_lc rdf:type glycan:evidence_type ,
+                                 owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_type_lc_ms
+
+glycan:evidence_type_lc_ms rdf:type glycan:evidence_type ,
+                                    owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_type_lc_msms
+
+glycan:evidence_type_lc_msms rdf:type glycan:evidence_type ,
+                                      owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_type_ms
+
+glycan:evidence_type_ms rdf:type glycan:evidence_type ,
+                                 owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_type_msms
+
+glycan:evidence_type_msms rdf:type glycan:evidence_type ,
+                                   owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#evidence_type_nmr
+
+glycan:evidence_type_nmr rdf:type glycan:evidence_type ,
+                                  owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#galacto
+
+glycan:galacto rdf:type glycan:relative_configuration ,
+                        owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#gluco
+
+glycan:gluco rdf:type glycan:relative_configuration ,
+                      owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#glycero
+
+glycan:glycero rdf:type glycan:relative_configuration ,
+                        owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#gulo
+
+glycan:gulo rdf:type glycan:relative_configuration ,
+                     owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#ido
+
+glycan:ido rdf:type glycan:relative_configuration ,
+                    owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#linkage_type_deoxy
+
+glycan:linkage_type_deoxy rdf:type glycan:linkage_type ,
+                                   owl:NamedIndividual ;
+                          
+                          rdfs:comment "The substituent is linked directly to the basetype backbone by replacing the OH group."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#linkage_type_h_at_oh
+
+glycan:linkage_type_h_at_oh rdf:type glycan:linkage_type ,
+                                     owl:NamedIndividual ;
+                            
+                            rdfs:comment "A standard O-linked substituent, i.e. the substituent replaces the hydrogen of an OH group."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#linkage_type_h_lose
+
+glycan:linkage_type_h_lose rdf:type glycan:linkage_type ,
+                                    owl:NamedIndividual ;
+                           
+                           rdfs:comment "The substituent is linked directly to the basetype backbone by replacing the hydrogen atom."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#linkage_type_r_config
+
+glycan:linkage_type_r_config rdf:type glycan:linkage_type ,
+                                      owl:NamedIndividual ;
+                             
+                             rdfs:comment "The substituent is linked directly to the basetype backbone by replacing a hydrogen atom at a terminal position, which would be non-chiral without the substituent, resulting in an R-configuration of the carbon."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#linkage_type_s_config
+
+glycan:linkage_type_s_config rdf:type glycan:linkage_type ,
+                                      owl:NamedIndividual ;
+                             
+                             rdfs:comment "Same as R_CONFIG, but resulting in an S-Configuration of the carbon."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#lyxo
+
+glycan:lyxo rdf:type glycan:relative_configuration ,
+                     owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#manno
+
+glycan:manno rdf:type glycan:relative_configuration ,
+                      owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#mass_spectrometry_ionisation_esi
+
+glycan:mass_spectrometry_ionisation_esi rdf:type glycan:mass_spectrometry_ionisation ,
+                                                 owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#mass_spectrometry_ionisation_maldi
+
+glycan:mass_spectrometry_ionisation_maldi rdf:type glycan:mass_spectrometry_ionisation ,
+                                                   owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#mass_spectrometry_mode_both
+
+glycan:mass_spectrometry_mode_both rdf:type glycan:mass_spectrometry_mode ,
+                                            owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#mass_spectrometry_mode_negative
+
+glycan:mass_spectrometry_mode_negative rdf:type glycan:mass_spectrometry_mode ,
+                                                owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#mass_spectrometry_mode_positiv
+
+glycan:mass_spectrometry_mode_positiv rdf:type glycan:mass_spectrometry_mode ,
+                                               owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_notation_scheme_amber_glycam
+
+glycan:monosaccharide_notation_scheme_amber_glycam rdf:type glycan:monosaccharide_notation_scheme ,
+                                                            owl:NamedIndividual ;
+                                                   
+                                                   rdfs:comment """Two-letter residue names used within the AMBER GLYCAM forcefield. For more information, see Carbohydrate Naming Convention in Glycam.
+
+Note (1): Monosaccharide alias names in GLYCAM notation also encode linkage positions (in the first character of a three-letter-code residue name). These depend on the context of a residue within an oligosaccharide and thus are no monosaccharide properties. GLYCAM names stored in MonosaccharideDB refer to a terminal residue. The first character might have to be adjusted according to the specific context of a residue, i.e. in case other residues linked are to the given one.
+
+Note (2): The GLYCAM notation is not yet supported by the notation parsing routines, i.e. GLYCAM alias names can be created, but not be read yet."""^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_notation_scheme_bcsdb
+
+glycan:monosaccharide_notation_scheme_bcsdb rdf:type glycan:monosaccharide_notation_scheme ,
+                                                     owl:NamedIndividual ;
+                                            
+                                            rdfs:comment "The notation used by the Russian BCSDB. For more information on this notation, see the description on the BCSDB homepage. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_notation_scheme_carbbank
+
+glycan:monosaccharide_notation_scheme_carbbank rdf:type glycan:monosaccharide_notation_scheme ,
+                                                        owl:NamedIndividual ;
+                                               
+                                               rdfs:comment "The CarbBank notation is based on the IUPAC extended notation. It is used by the Complex Carbohydrate Structure Database (CCSD), which is better known by the name of its query software \"carbbank\". CarbBank style notation forms the basis of several other notations, such as the Glycosciences.de scheme. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_notation_scheme_cfg
+
+glycan:monosaccharide_notation_scheme_cfg rdf:type glycan:monosaccharide_notation_scheme ,
+                                                   owl:NamedIndividual ;
+                                          
+                                          rdfs:comment "The LinearCode notation used by the US Consortium for Functional Glycomics (CFG). "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_notation_scheme_glycoct
+
+glycan:monosaccharide_notation_scheme_glycoct rdf:type glycan:monosaccharide_notation_scheme ,
+                                                       owl:NamedIndividual ;
+                                              
+                                              rdfs:comment "The nomenclature that is used by EUROCarbDB. For more information see www.eurocarbdb.org/recommendations/encoding/. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_notation_scheme_glycosciences_de
+
+glycan:monosaccharide_notation_scheme_glycosciences_de rdf:type glycan:monosaccharide_notation_scheme ,
+                                                                owl:NamedIndividual ;
+                                                       
+                                                       rdfs:comment "The Notation used in the Glycosciences.de web portal. It is based on the CarbBank notation. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_notation_scheme_monosaccharidedb
+
+glycan:monosaccharide_notation_scheme_monosaccharidedb rdf:type glycan:monosaccharide_notation_scheme ,
+                                                                owl:NamedIndividual ;
+                                                       
+                                                       rdfs:comment "MonosaccharideDB's internal notation format. Basetype and substituent names are the same as in GlycoCT, with the exception that 'anhydro' and 'lactone' modifications are included in the basetype here, while they are defined as substituents in GlycoCT. As most glycobiologist and also most carbohydrate databases consider a monosaccharide that contains substituents as one residue, they are defined in this way in MonosaccharideDB as well. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#monosaccharide_notation_scheme_pdb
+
+glycan:monosaccharide_notation_scheme_pdb rdf:type glycan:monosaccharide_notation_scheme ,
+                                                   owl:NamedIndividual ;
+                                          
+                                          rdfs:comment "The 3-letter residue names as used by the Protein Data Bank (PDB). Unlike most of the other notations, these names cannot be generated automatically by conversion routines but have to be assigned manually by the database administrators. Some PDB residue names that encode carbohydrate residues define disaccharides or oligosaccharides. These are not implemented in MonosaccharideDB, as the scope of this database is on monosaccharide residues. "^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#repeat_attribute_average
+
+glycan:repeat_attribute_average rdf:type glycan:repeat_attribute ,
+                                         owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#repeat_attribute_exact
+
+glycan:repeat_attribute_exact rdf:type glycan:repeat_attribute ,
+                                       owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#repeat_attribute_max
+
+glycan:repeat_attribute_max rdf:type glycan:repeat_attribute ,
+                                     owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#repeat_attribute_min
+
+glycan:repeat_attribute_min rdf:type glycan:repeat_attribute ,
+                                     owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#repeat_attribute_unknown
+
+glycan:repeat_attribute_unknown rdf:type glycan:repeat_attribute ,
+                                         owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#ribo
+
+glycan:ribo rdf:type glycan:relative_configuration ,
+                     owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_acetyl
+
+glycan:substituent_type_acetyl rdf:type glycan:substituent_type ,
+                                        owl:NamedIndividual ;
+                               
+                               rdfs:comment "COCH3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_amino
+
+glycan:substituent_type_amino rdf:type glycan:substituent_type ,
+                                       owl:NamedIndividual ;
+                              
+                              rdfs:comment "NH2"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_bromo
+
+glycan:substituent_type_bromo rdf:type glycan:substituent_type ,
+                                       owl:NamedIndividual ;
+                              
+                              rdfs:comment "Br"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_chloro
+
+glycan:substituent_type_chloro rdf:type glycan:substituent_type ,
+                                        owl:NamedIndividual ;
+                               
+                               rdfs:comment "Cl"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_ethanolamine
+
+glycan:substituent_type_ethanolamine rdf:type glycan:substituent_type ,
+                                              owl:NamedIndividual ;
+                                     
+                                     rdfs:comment "NHCH2CH2OH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_ethyl
+
+glycan:substituent_type_ethyl rdf:type glycan:substituent_type ,
+                                       owl:NamedIndividual ;
+                              
+                              rdfs:comment "CH2CH3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_fluoro
+
+glycan:substituent_type_fluoro rdf:type glycan:substituent_type ,
+                                        owl:NamedIndividual ;
+                               
+                               rdfs:comment "F"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_formyl
+
+glycan:substituent_type_formyl rdf:type glycan:substituent_type ,
+                                        owl:NamedIndividual ;
+                               
+                               rdfs:comment "CHO"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_glycolyl
+
+glycan:substituent_type_glycolyl rdf:type glycan:substituent_type ,
+                                          owl:NamedIndividual ;
+                                 
+                                 rdfs:comment "COCH2OH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_hydroxymethyl
+
+glycan:substituent_type_hydroxymethyl rdf:type glycan:substituent_type ,
+                                               owl:NamedIndividual ;
+                                      
+                                      rdfs:comment "CH2OH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_imino
+
+glycan:substituent_type_imino rdf:type glycan:substituent_type ,
+                                       owl:NamedIndividual ;
+                              
+                              rdfs:comment "NH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_iodo
+
+glycan:substituent_type_iodo rdf:type glycan:substituent_type ,
+                                      owl:NamedIndividual ;
+                             
+                             rdfs:comment "I"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_methyl
+
+glycan:substituent_type_methyl rdf:type glycan:substituent_type ,
+                                        owl:NamedIndividual ;
+                               
+                               rdfs:comment "CH3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_acetyl
+
+glycan:substituent_type_n_acetyl rdf:type glycan:substituent_type ,
+                                          owl:NamedIndividual ;
+                                 
+                                 rdfs:comment "NHCOCH3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_alanine
+
+glycan:substituent_type_n_alanine rdf:type glycan:substituent_type ,
+                                           owl:NamedIndividual ;
+                                  
+                                  rdfs:comment "NHCOCHNH2CH3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_dimethyl
+
+glycan:substituent_type_n_dimethyl rdf:type glycan:substituent_type ,
+                                            owl:NamedIndividual ;
+                                   
+                                   rdfs:comment "N(CH3)2"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_ethyl
+
+glycan:substituent_type_n_ethyl rdf:type glycan:substituent_type ,
+                                         owl:NamedIndividual ;
+                                
+                                rdfs:comment "NHCH2CH3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_formyl
+
+glycan:substituent_type_n_formyl rdf:type glycan:substituent_type ,
+                                          owl:NamedIndividual ;
+                                 
+                                 rdfs:comment "NHCHO"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_glycolyl
+
+glycan:substituent_type_n_glycolyl rdf:type glycan:substituent_type ,
+                                            owl:NamedIndividual ;
+                                   
+                                   rdfs:comment "NCOCH2OH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_methyl
+
+glycan:substituent_type_n_methyl rdf:type glycan:substituent_type ,
+                                          owl:NamedIndividual ;
+                                 
+                                 rdfs:comment "NHCH3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_succinate
+
+glycan:substituent_type_n_succinate rdf:type glycan:substituent_type ,
+                                             owl:NamedIndividual ;
+                                    
+                                    rdfs:comment "NCOCH2CH2COOH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_sulfate
+
+glycan:substituent_type_n_sulfate rdf:type glycan:substituent_type ,
+                                           owl:NamedIndividual ;
+                                  
+                                  rdfs:comment "NHSO3H"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_trifluoroacetyl
+
+glycan:substituent_type_n_trifluoroacetyl rdf:type glycan:substituent_type ,
+                                                   owl:NamedIndividual ;
+                                          
+                                          rdfs:comment "NHCOCF3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_n_trimethyl
+
+glycan:substituent_type_n_trimethyl rdf:type glycan:substituent_type ,
+                                             owl:NamedIndividual ;
+                                    
+                                    rdfs:comment "N(CH3)3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_nitrat
+
+glycan:substituent_type_nitrat rdf:type glycan:substituent_type ,
+                                        owl:NamedIndividual ;
+                               
+                               rdfs:comment "NO2"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_phosphate
+
+glycan:substituent_type_phosphate rdf:type glycan:substituent_type ,
+                                           owl:NamedIndividual ;
+                                  
+                                  rdfs:comment "PO3H2"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_r_lactate
+
+glycan:substituent_type_r_lactate rdf:type glycan:substituent_type ,
+                                           owl:NamedIndividual ;
+                                  
+                                  rdfs:comment "CH3CHCOOH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_r_pyruvate
+
+glycan:substituent_type_r_pyruvate rdf:type glycan:substituent_type ,
+                                            owl:NamedIndividual ;
+                                   
+                                   rdfs:comment "CH2CCOOH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_s_lactate
+
+glycan:substituent_type_s_lactate rdf:type glycan:substituent_type ,
+                                           owl:NamedIndividual ;
+                                  
+                                  rdfs:comment "CH3CHCOOH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_s_methyl
+
+glycan:substituent_type_s_methyl rdf:type glycan:substituent_type ,
+                                          owl:NamedIndividual ;
+                                 
+                                 rdfs:comment "SCH3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_s_pyruvate
+
+glycan:substituent_type_s_pyruvate rdf:type glycan:substituent_type ,
+                                            owl:NamedIndividual ;
+                                   
+                                   rdfs:comment "CH2CCOOH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_seleno
+
+glycan:substituent_type_seleno rdf:type glycan:substituent_type ,
+                                        owl:NamedIndividual ;
+                               
+                               rdfs:comment "SeH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_sulfate
+
+glycan:substituent_type_sulfate rdf:type glycan:substituent_type ,
+                                         owl:NamedIndividual ;
+                                
+                                rdfs:comment "SO3H"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_telluro
+
+glycan:substituent_type_telluro rdf:type glycan:substituent_type ,
+                                         owl:NamedIndividual ;
+                                
+                                rdfs:comment "TeH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_thio
+
+glycan:substituent_type_thio rdf:type glycan:substituent_type ,
+                                      owl:NamedIndividual ;
+                             
+                             rdfs:comment "SH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_trifluoroacetyl
+
+glycan:substituent_type_trifluoroacetyl rdf:type glycan:substituent_type ,
+                                                 owl:NamedIndividual ;
+                                        
+                                        rdfs:comment "COCF3"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_x_lactate
+
+glycan:substituent_type_x_lactate rdf:type glycan:substituent_type ,
+                                           owl:NamedIndividual ;
+                                  
+                                  rdfs:comment "CH3CHCOOH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#substituent_type_x_pyruvate
+
+glycan:substituent_type_x_pyruvate rdf:type glycan:substituent_type ,
+                                            owl:NamedIndividual ;
+                                   
+                                   rdfs:comment "CH2CCOOH"^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#symbol_format_cfg
+
+glycan:symbol_format_cfg rdf:type glycan:symbol_format ,
+                                  owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#symbol_format_uoxf
+
+glycan:symbol_format_uoxf rdf:type glycan:symbol_format ,
+                                   owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#synthetic_type_chemical
+
+glycan:synthetic_type_chemical rdf:type glycan:synthetic_type ,
+                                        owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#synthetic_type_chemoenzymetic
+
+glycan:synthetic_type_chemoenzymetic rdf:type glycan:synthetic_type ,
+                                              owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#synthetic_type_enzymatic
+
+glycan:synthetic_type_enzymatic rdf:type glycan:synthetic_type ,
+                                         owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#talo
+
+glycan:talo rdf:type glycan:relative_configuration ,
+                     owl:NamedIndividual .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#xylo
+
+glycan:xylo rdf:type glycan:relative_configuration ,
+                     owl:NamedIndividual .
+
+
+
+
+###  Generated by the OWL API (version 3.2.2.1789) http://owlapi.sourceforge.net
+

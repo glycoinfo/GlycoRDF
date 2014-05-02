@@ -1,0 +1,102 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix bibo:    <http://purl.org/ontology/bibo/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix glycan:  <http://purl.jp/bio/12/glyco/glycan#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+
+<http://www.monosaccharidedb.org/substituent/5nac>
+      a       owl:NamedIndividual , glycan:substituent ;
+      glycan:has_substituent_linkage
+              <http://www.monosaccharidedb.org/substituentlinkage/5d> ;
+      glycan:has_substituent_type
+              glycan:substituent_type_n_acetyl .
+
+<http://www.monosaccharidedb.org/configuration/dgro>
+      a       owl:NamedIndividual , glycan:configuration ;
+      glycan:has_absolute_configuration
+              glycan:absolute_configuration_dexter ;
+      glycan:has_relative_configuration
+              glycan:glycero .
+
+<http://www.monosaccharidedb.org/alias/carbbank_a-D-Neup5Ac>
+      a       owl:NamedIndividual , glycan:monosaccharide_alias ;
+      glycan:has_monosaccharide_notation_scheme
+              glycan:monosaccharide_notation_scheme_carbbank ;
+      glycan:has_name "a-D-Neup5Ac"^^xsd:string ;
+      glycan:is_primary_name
+              "true"^^xsd:boolean ;
+      glycan:is_trivial_name
+              "true"^^xsd:boolean .
+
+<http://www.monosaccharidedb.org/modification/1a>
+      a       owl:NamedIndividual , glycan:core_modification ;
+      glycan:has_core_modification_type
+              glycan:core_modification_type_acid ;
+      glycan:has_position 1 .
+
+<http://www.monosaccharidedb.org/substituentlinkage/5d>
+      a       glycan:substituent_linkage , owl:NamedIndividual ;
+      glycan:has_linkage_type
+              glycan:linkage_type_deoxy ;
+      glycan:has_substituent_linkage_position
+              5 .
+
+<http://www.monosaccharidedb.org/modification/2keto>
+      a       owl:NamedIndividual , glycan:core_modification ;
+      glycan:has_core_modification_type
+              glycan:core_modification_type_keto ;
+      glycan:has_position 2 .
+
+<http://www.monosaccharidedb.org/query_monosaccharide_by_name.action?scheme=msdb&name=a-dgro-dgal-NON-2%3A6|1%3Aa|2%3Aketo|3%3Ad>
+      a       owl:NamedIndividual , glycan:basetype ;
+      glycan:has_anomer glycan:anomer_alpha ;
+      glycan:has_basetype_id
+              15 ;
+      glycan:has_core_modification
+              <http://www.monosaccharidedb.org/modification/1a> , <http://www.monosaccharidedb.org/modification/2keto> , <http://www.monosaccharidedb.org/modification/3d> ;
+      glycan:has_extended_stereocode
+              "a2d21122h-2:6"^^xsd:string ;
+      glycan:has_first_configuration
+              <http://www.monosaccharidedb.org/configuration/dgro> ;
+      glycan:has_ring_end 6 ;
+      glycan:has_ring_start
+              2 ;
+      glycan:has_ring_type
+              glycan:pyranose ;
+      glycan:has_second_configuration
+              <http://www.monosaccharidedb.org/configuration/dgal> ;
+      glycan:has_size 9 ;
+      glycan:has_stereocode
+              "020211220"^^xsd:string .
+
+<http://www.monosaccharidedb.org/configuration/dgal>
+      a       owl:NamedIndividual , glycan:configuration ;
+      glycan:has_absolute_configuration
+              glycan:absolute_configuration_dexter ;
+      glycan:has_relative_configuration
+              glycan:galacto .
+
+<http://www.monosaccharidedb.org/query_monosaccharide_by_name.action?scheme=carbbank&name=a-D-Neup5AC>
+      a       owl:NamedIndividual , glycan:monosaccharide ;
+      glycan:has_alias <http://www.monosaccharidedb.org/alias/carbbank_a-D-Neup5Ac> ;
+      glycan:has_average_molecular_weight
+              "309.27"^^xsd:double ;
+      glycan:has_basetype <http://www.monosaccharidedb.org/query_monosaccharide_by_name.action?scheme=msdb&name=a-dgro-dgal-NON-2%3A6|1%3Aa|2%3Aketo|3%3Ad> ;
+      glycan:has_linking_position
+              9 , 7 , 8 , 4 , 2 ;
+      glycan:has_monoisotopic_molecular_weight
+              "309.106"^^xsd:double ;
+      glycan:has_msdb_id 6 ;
+      glycan:has_name "a-dgro-dgal-NON-2:6|1:a|2:keto|3:d||(5d:1)n-acetyl"^^xsd:string ;
+      glycan:has_substituent
+              <http://www.monosaccharidedb.org/substituent/5nac> .
+
+<http://www.monosaccharidedb.org/modification/3d>
+      a       owl:NamedIndividual , glycan:core_modification ;
+      glycan:has_core_modification_type
+              glycan:core_modification_type_deoxy ;
+      glycan:has_position 3 .

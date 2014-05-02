@@ -1,0 +1,1 @@
+- expand the domain of has_resource_entry to referenced_compound

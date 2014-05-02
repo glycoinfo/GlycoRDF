@@ -1,0 +1,36 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix bibo:    <http://purl.org/ontology/bibo/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix glycan:  <http://purl.jp/bio/12/glyco/glycan#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+
+<http://www.glycome-db.org/rdf/glycan/770>
+      a       owl:NamedIndividual , glycan:glycan ;
+      glycan:relation <http://www.glycome-db.org/rdf/correlation/770-9606> .
+
+<http://www.glycome-db.org/rdf/source/natural/9606>
+      a       owl:NamedIndividual , glycan:source_natural ;
+      glycan:has_taxon "http://purl.uniprot.org/taxonomy/9606"^^xsd:anyURI ;
+      glycan:relation <http://www.glycome-db.org/rdf/correlation/770-9606> .
+
+<http://www.glycome-db.org/rdf/correlation/770-9606>
+      a       glycan:correlation , owl:NamedIndividual ;
+      glycan:elucidated "true"^^xsd:boolean ;
+      glycan:has_evidence <http://www.glycome-db.org/rdf/evidence/ms/q23edr> ;
+      glycan:has_glycan <http://www.glycome-db.org/rdf/glycan/770> ;
+      glycan:has_source <http://www.glycome-db.org/rdf/source/natural/9606> ;
+      glycan:has_structure_location
+              "Figure 11a"^^xsd:string ;
+      glycan:published_in <http://www.glycome-db.org/rdf/reference/nyan-nyan> .
+
+<http://www.glycome-db.org/rdf/evidence/ms/q23edr>
+      a       glycan:evidence_ms , owl:NamedIndividual ;
+      glycan:relation <http://www.glycome-db.org/rdf/correlation/770-9606> .
+
+<http://www.glycome-db.org/rdf/reference/nyan-nyan>
+      a       glycan:reference , owl:NamedIndividual ;
+      glycan:relation <http://www.glycome-db.org/rdf/correlation/770-9606> .

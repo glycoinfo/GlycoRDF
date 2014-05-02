@@ -1,0 +1,16 @@
+Changelog 0.3 -> 0.4
+====================
+
+- updated documentation with changes from Thomas
+- rename basetype -> configuration
+- rename has_first_basetype -> has_first_configuration
+- rename has_second_basetype -> has_second_configuration
+- added has_third_configuration (functional)
+- added class basetype
+- added has_basetype (monosaccharide->basetype) (functional)
+- changed domain to basetype: has_anomer, has_core_modification, has_ring_start, has_ring_end, has_size, has_stereo_code, has_extended_stereo_code
+- added has_msdb_id (monosaccharide->integer) (functional)
+- added has_basetype_id (basetype->integer) (functional)
+- added class ring_type + instances for furanose and pyranose
+- added has_ring_type (basetype->ring_type) (functional)
+

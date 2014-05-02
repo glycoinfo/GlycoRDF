@@ -1,0 +1,12 @@
+Changelog 0.4 -> 0.5
+====================
+
+- fixed domain of has_basetype property (Monosaccharide->Basetype)
+- fixed domain of has_...-configuration (Basetype -> Configuration)
+- delete image class declaration
+- has_position (Core_modificiation -> integer) no longer functional
+- has_keyword is range range anyURI (Meshterms or similar)
+- disjoint properties: has_tissue <=> has_fluid
+- add class database_entry for remote entries (rdfs:seeAlso)
+- range of rdfs:seeAlso in glycan is database_enty 
+- has_monosaccharide (Component -> Monosaccharide) made functional

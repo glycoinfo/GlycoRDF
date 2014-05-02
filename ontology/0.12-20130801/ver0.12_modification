@@ -1,0 +1,47 @@
+glycan.owl ver0.12(modification)
+
+1) Renamed "has_particle_size"
+before "has_particel_size"
+
+2) Deleted "has_signallist"
+that predicate isn't used now in BCSDB RDF.
+
+3) "has_taxon" does exist object property and data property.
+Deleted has_taxon(object property)
+Reason: "has_taxon" that is data property is used in RDF.
+
+4) modified URI of namespace at some properties
+>before 
+http://www.glycome-db.org/rdf/glycan/under-development/glycomedb.owl#has_component
+http://www.glycome-db.org/rdf/glycan/under-development/glycomedb.owl#in_linucs
+>after 
+http://purl.jp/bio/12/glyco/glycan#has_component
+http://purl.jp/bio/12/glyco/glycan#in_linucs
+
+5) Ticked the 'Transitive' at "has_alias" on object property
+e.g. A has_alias B. B has_alias C. so, A has_alias C.
+
+
+6) Deleated property restriction about "has_reference some referenced_compound" at some classes.
+> citation, aglycon, saccharide, evidence, source
+
+this restriction is incorrect or misunderstanding about property restriction.
+
+
+7) Deleated some individuals
+ring_type_furanose
+ring_type_open
+ring_type_pyranose
+Reason: furanose, open and pyranose is a type of Ring_Type already.
+
+8) Modified "has_source" as Data Property. 
+Domain is referenced_compound. Range is anyURI.
+"has_source" was Object Property.
+However, anyURI is desirable for the range of this property.
+Because, anyURI can use URI of other source ontology(e.g.BTO) except source class.
+
+
+
+
+
+

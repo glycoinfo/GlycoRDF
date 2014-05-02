@@ -1,0 +1,28 @@
+- has_affinity_to is object property (Range: glycan binder)
+- added minimal instaces for glycan database category
+- deleted has_rings_type
+- deleted has_notation_scheme
+- change domain of has_default_ ... properties to substituent_type
+- name has_carbohydrate_format -> in_carbohydrate_format
+- delete in_csdb, in_glycoct ...
+- add new class image
+- change has image range to image
+- change has_symbol_format domain to image
+- change generated_by -> synthesized_by
+- replace has_name with http://xmlns.com/foaf/0.1/name
+- add database_category_bibliography instance for database category
+- removed instance sample_type_biological
+- add class Motif and put glycan motif and repeat unit classes as subclasses
+- add class Role and make Enzyme, glycan binder, buffer and solvent subclasses
+- remove has_modification_poistion from SubstituentLInkage
+- add data property has_substituent_linkage_position2 with domain Substituent linkage
+- remove has_repeat_count_min and has_repeat_count_max
+- Add motif to the domain of has_glycosequence and has_glycoconjugate_sequence
+- delete has_taxon data property
+- added absolute_configuration_leavus to all l-amino acids
+- added d-amino acids (also added absolute_configuration_dexter property)
+- added solvents CD3OD, C5D5N, CDCl3
+- added class solvent_part
+- change domain of used_solvent to solvent_part
+- added used_solvent_part object property (Evidence NMR -> solvent part)
+- added ratio data property (solvent_part -> double)

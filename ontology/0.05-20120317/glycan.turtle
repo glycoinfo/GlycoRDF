@@ -1,0 +1,95 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix bibo:    <http://purl.org/ontology/bibo/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix glycan:  <http://purl.jp/bio/12/glyco/glycan#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+
+<http://www.genome.jp/dbget-bin/www_bget?carbbank+3821>
+      glycan:in_glycan_database
+              glycan:database_carbbank ;
+      dcterms:identifier "3821"^^xsd:string .
+
+<http://www.glycome-db.org/rdf/glycan/770>
+      a       owl:NamedIndividual , glycan:glycan ;
+      rdfs:seeAlso <http://www.genome.jp/dbget-bin/www_bget?carbbank+3821> ;
+      glycan:degraded_by <http://www.glycome-db.org/rdf/reaction/123> ;
+      glycan:generated_by <http://www.glycome-db.org/rdf/reaction/122> ;
+      glycan:has_affinity_to
+              "http://www.uniprot.org/uniprot/P00226.rdf"^^xsd:anyURI ;
+      glycan:has_aglycon <http://www.glycome-db.org/rdf/aglycon/9-hydroxy-Nonanoate> ;
+      glycan:has_component
+              <http://www.glycome-db.org/rdf/component/12wer> ;
+      glycan:has_epitope <http://www.glycome-db.org/rdf/epitope/adf62> ;
+      glycan:has_glycoconjugate_sequence
+              <http://www.genome.jp/dbget-bin/www_bget?carbbank+3821#sequence> ;
+      glycan:has_glycosequence
+              <http://www.glycome-db.org/rdf/sequence/770ct> ;
+      glycan:has_image <http://www.glycome-db.org/getSugarImage.action?id=770&type=cfg> ;
+      glycan:has_motif <http://www.glycome-db.org/rdf/motif/fzhj4> ;
+      owl:sameAs "http://www.somedb.public/12.rdf"^^xsd:anyURI .
+
+<http://www.genome.jp/dbget-bin/www_bget?carbbank+3821#sequence>
+      glycan:has_sequence """                            a-D-Manp-(1-6)+
+                                          |
+ b-D-Galp-(1-4)-b-D-GlcpNAc-(1-4)+   b-D-Manp-(1-9)-9-hydroxy-Nonanoate-(1-1)-Methyl
+                                 |        |
+                            a-D-Manp-(1-3)+
+                                 |
+ b-D-Galp-(1-4)-b-D-GlcpNAc-(1-2)+"""^^xsd:string .
+
+<http://www.glycome-db.org/rdf/reaction/123>
+      glycan:catalyzed_by "http://www.uniprot.org/uniprot/P00327.rdf"^^xsd:anyURI ;
+      glycan:has_substrate
+              <http://www.glycome-db.org/rdf/glycan/771> .
+
+<http://www.glycome-db.org/rdf/reaction/122>
+      glycan:catalyzed_by "http://www.uniprot.org/uniprot/P00326.rdf"^^xsd:anyURI ;
+      glycan:has_substrate
+              <http://www.glycome-db.org/rdf/glycan/769> .
+
+<http://www.glycome-db.org/rdf/sequence/770ct>
+      glycan:has_carbohydrate_format
+              glycan:carbohydrate_format_glycoct ;
+      glycan:has_sequence """RES
+1b:b-dman-HEX-1:5
+2b:a-dman-HEX-1:5
+3b:b-dglc-HEX-1:5
+4s:n-acetyl
+5b:b-dgal-HEX-1:5
+6b:b-dglc-HEX-1:5
+7s:n-acetyl
+8b:b-dgal-HEX-1:5
+9b:a-dman-HEX-1:5
+LIN
+1:1o(3+1)2d
+2:2o(2+1)3d
+3:3d(2+1)4n
+4:3o(4+1)5d
+5:2o(4+1)6d
+6:6d(2+1)7n
+7:6o(4+1)8d
+8:1o(6+1)9d
+"""^^xsd:string .
+
+<http://www.glycome-db.org/rdf/aglycon/9-hydroxy-Nonanoate>
+      glycan:has_attachment_position
+              1 ;
+      glycan:has_linkage 1 ;
+      glycan:has_reference
+              <http://pubmed.org/1234567> ;
+      foaf:name "9-hydroxy-Nonanoate"^^xsd:string .
+
+<http://www.glycome-db.org/getSugarImage.action?id=770&type=cfg>
+      glycan:has_symbol_format
+              glycan:symbol_format_cfg ;
+      dc:format "image/jpeg"^^xsd:string .
+
+<http://www.glycome-db.org/rdf/component/12wer>
+      glycan:has_cardinality
+              1 ;
+      glycan:has_monosaccharide
+              <http://www.monosaccharidedb.org/query_monosaccharide_by_name.action?scheme=msdb&name=b-dman-HEX-1%3A5> .

@@ -1,0 +1,50 @@
+@prefix glycan: <http://purl.jp/bio/12/glyco/glycan#> .
+
+<http://***> a glycan:evidence_nmr;
+	glycan:has_subspectrum <subspc1>;
+	glycan:has_nucleus "1H";
+	glycan:used_ph "6.5"^^xsd:double;
+	glycan:used_solvent <solvent>; 			<=reviced
+	glycan:used_temperature "303.15"^^xsd:double;	<=reviced                     
+	glycan:has_reference <http://****>;
+	glycan:used_frequency "600.17"^^xsd:double; #MHz	<=reviced
+	glycan:used_concentration "0.1"^^xsd:double; #mol/L	<=reviced
+	glycan:used_amount_mg "10"^^xsd:double; #milligrams	<=reviced
+	glycan:has_missing_signals_min "0"^^xsd:integer;
+	glycan:has_missing_signals_max "2"^^xsd:integer;	 <= added
+	glycan:used_reference_standard <compound>;		 <= added
+	glycan:has_unassigned_signal <signal0>;			 <= added
+	glycan:used_buffer <buffer> .  			 <= added
+
+
+<subspc1> a glycan:subspectrum;
+	glycan:has_linkage_path “3,3,4,3”;
+	glycan:has_residue <http://www.monosaccharidedb.org/***> ;
+	glycan:has_signal <signal1>;
+	glycan:has_signal <signal2>;
+	glycan:has_signal <signal3>.
+
+
+<signal0> a glycan:signal;		<=unassigned signal
+	glycan:chemical_shift "3.64"^^xsd:double.
+
+<signal1> a glycan:signal;
+	glycan:of_carbon_number "1"^^xsd:integer;	<=reviced
+        glycan:is_missing "false"^^xsd:boolean;		<=reviced
+	glycan:has_chemical_shift "5.12"^^xsd:double.
+
+<signal2> a glycan:signal;
+	glycan:of_carbon_number "2"^^xsd:integer;
+	glycan:is_missing "false^^xsd:boolean;
+	glycan:has_chemical_shift_max "3.99"^^xsd:double;
+	glycan:has_chemical_shift_min "3.92"^^xsd:double;
+	glycan:has_multiplicity ”DTD”;				<= added
+	glycan:has_coupling_constant "10.0"^^xsd:double; 
+	glycan:has_coupling_constant "7.0"^^xsd:double .
+
+<signal3> a glycan:signal;
+	glycan:of_carbon_number "3"^^xsd:integer;
+	glycan:is_missing "true"^^xsd:boolean.
+
+
+
