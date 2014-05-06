@@ -8,5 +8,7 @@ Ontology: https://github.com/ReneRanzinger/GlycoRDF/blob/master/ontology/glycan.
 Documentation: https://github.com/ReneRanzinger/GlycoRDF/blob/master/ontology/documentation.docx
 
 ## List of developers
+A list of all developers and their institutions is available in the wiki (https://github.com/ReneRanzinger/GlycoRDF/wiki).
 
 ## List of databases
+An overview of all database providers generated GlycoRDF file is available in the wiki (https://github.com/ReneRanzinger/GlycoRDF/wiki).
