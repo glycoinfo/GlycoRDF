@@ -4,6 +4,7 @@ GlycoRDF is a standard representation for storing Glycomcis data (glycan structu
 
 ## Current version
 Ontology: https://github.com/ReneRanzinger/GlycoRDF/blob/master/ontology/glycan.owl
+
 Documentation: https://github.com/ReneRanzinger/GlycoRDF/blob/master/ontology/documentation.docx
 
 ## List of developers
