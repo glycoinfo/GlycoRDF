@@ -12,3 +12,6 @@ A list of all developers and their institutions is available in the wiki (https:
 
 ## List of databases
 An overview of all database providers generated GlycoRDF file is available in the wiki (https://github.com/ReneRanzinger/GlycoRDF/wiki).
+
+## Citation
+Introducing glycomics data into the Semantic Web. Aoki-Kinoshita KF et al.,(2013) <a href="http://www.jbiomedsem.com/content/4/1/39">J Biomed Semantics</a>
