@@ -55,8 +55,18 @@ public class GlycoRDFWriter
     private RDFGenerator m_generator = null;
     private RDFGeneratorErrorLogger m_logger = new RDFGeneratorErrorLogger();
     private ResidueTranslator m_residueTransTranslation = null;
+    
+    private String namespace = "glycome-db";
 
-    public RDFGeneratorErrorLogger getLogger()
+    public String getNamespace() {
+		return namespace;
+	}
+
+	public void setNamespace(String namespace) {
+		this.namespace = namespace;
+	}
+
+	public RDFGeneratorErrorLogger getLogger()
     {
         return m_logger;
     }
@@ -112,7 +122,14 @@ public class GlycoRDFWriter
                     t_visitorType.start(t_sugar);
                     if ( t_visitorType.getType() == null )
                     {
-                        Saccharide t_glycan = new Saccharide(URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString()));
+                    	String uri;
+                    	if (namespace.equalsIgnoreCase("glyspace")) {
+                    		uri = URIPattern.getURI(URIPattern.glyspace_glycan,t_structure.getAccessionNumber());
+                    	} else {
+                    		uri = URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString());
+                    	}
+                    	
+                        Saccharide t_glycan = new Saccharide(uri);
                         this.addProperties(t_glycan,t_structure,t_sugar);
                         this.m_generator.addSaccharide(t_glycan);
                     }
@@ -120,31 +137,61 @@ public class GlycoRDFWriter
                     {
                         if ( t_visitorType.getType().equals(GlycoVisitorGlycanType.N_glycan) )
                         {
-                            Nglycan t_glycan = new Nglycan(URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString()));
+                        	String uri;
+                        	if (namespace.equalsIgnoreCase("glyspace")) {
+                        		uri = URIPattern.getURI(URIPattern.glyspace_glycan,t_structure.getAccessionNumber());
+                        	} else {
+                        		uri = URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString());
+                        	}
+                            Nglycan t_glycan = new Nglycan(uri);
                             this.addProperties(t_glycan,t_structure,t_sugar);
                             this.m_generator.addNglycan(t_glycan);
                         }
                         else if (t_visitorType.getType().equals(GlycoVisitorGlycanType.O_glycan) )
                         {
-                            Oglycan t_glycan = new Oglycan(URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString()));
+                        	String uri;
+                        	if (namespace.equalsIgnoreCase("glyspace")) {
+                        		uri = URIPattern.getURI(URIPattern.glyspace_glycan,t_structure.getAccessionNumber());
+                        	} else {
+                        		uri = URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString());
+                        	}
+                            Oglycan t_glycan = new Oglycan(uri);
                             this.addProperties(t_glycan,t_structure,t_sugar);
                             this.m_generator.addOglycan(t_glycan);
                         }
                         else if (t_visitorType.getType().equals(GlycoVisitorGlycanType.Cyclic_Glycan) )
                         {
-                            CyclicGlycan t_glycan = new CyclicGlycan(URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString()));
+                        	String uri;
+                        	if (namespace.equalsIgnoreCase("glyspace")) {
+                        		uri = URIPattern.getURI(URIPattern.glyspace_glycan,t_structure.getAccessionNumber());
+                        	} else {
+                        		uri = URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString());
+                        	}
+                            CyclicGlycan t_glycan = new CyclicGlycan(uri);
                             this.addProperties(t_glycan,t_structure,t_sugar);
                             this.m_generator.addCyclicGlycan(t_glycan);
                         }
                         else if (t_visitorType.getType().equals(GlycoVisitorGlycanType.Polysaccharide) )
                         {
-                            Polysaccharide t_glycan = new Polysaccharide(URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString()));
+                        	String uri;
+                        	if (namespace.equalsIgnoreCase("glyspace")) {
+                        		uri = URIPattern.getURI(URIPattern.glyspace_glycan,t_structure.getAccessionNumber());
+                        	} else {
+                        		uri = URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString());
+                        	}
+                            Polysaccharide t_glycan = new Polysaccharide(uri);
                             this.addProperties(t_glycan,t_structure,t_sugar);
                             this.m_generator.addPolysaccharide(t_glycan);
                         }
                         else
                         {
-                            Saccharide t_glycan = new Saccharide(URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString()));
+                        	String uri;
+                        	if (namespace.equalsIgnoreCase("glyspace")) {
+                        		uri = URIPattern.getURI(URIPattern.glyspace_glycan,t_structure.getAccessionNumber());
+                        	} else {
+                        		uri = URIPattern.getURI(URIPattern.glycomedb_glycan,t_structure.getId().toString());
+                        	}
+                            Saccharide t_glycan = new Saccharide(uri);
                             this.addProperties(t_glycan,t_structure,t_sugar);
                             this.m_generator.addSaccharide(t_glycan);
                         }
@@ -370,14 +417,27 @@ public class GlycoRDFWriter
 
     private String createComponentURI(MonosaccharideComponent a_compomentElement) throws UnsupportedEncodingException
     {
-        return URIPattern.getURI(URIPattern.glycomedb_component, a_compomentElement.getNumber() + "_" + URLEncoder.encode(a_compomentElement.getMsdbString(),"UTF-8"));
+    	String uri;
+    	if (namespace.equalsIgnoreCase("glyspace")) {
+    		uri = URIPattern.getURI(URIPattern.glyspace_component,a_compomentElement.getNumber() + "_" + URLEncoder.encode(a_compomentElement.getMsdbString(),"UTF-8"));
+    	} else {
+    		uri = URIPattern.getURI(URIPattern.glycomedb_component, a_compomentElement.getNumber() + "_" + URLEncoder.encode(a_compomentElement.getMsdbString(),"UTF-8"));
+    	}
+        return uri;
     }
 
     private void addSequences(Saccharide a_glycan, Structure a_structure, Sugar a_sugar)
     {
         if ( this.m_config.isSequenceGlycoCt() )
         {
-            this.addGlycoSequence(URIPattern.getURI(URIPattern.glycomedb_sequence,a_structure.getId().toString()) + "/ct",
+        	String uri;
+        	if (namespace.equalsIgnoreCase("glyspace")) {
+        		uri = URIPattern.getURI(URIPattern.glyspace_sequence,a_structure.getAccessionNumber()) + "/ct";
+        	} else {
+        		uri = URIPattern.getURI(URIPattern.glycomedb_sequence,a_structure.getId().toString()) + "/ct";
+        	}
+        	
+            this.addGlycoSequence(uri,
                     CarbohydrateFormat.carbohydrate_format_glycoct, a_structure.getSequence(), a_glycan);
         }
         if ( this.m_config.isSequenceGlydeII() )
@@ -482,33 +542,67 @@ public class GlycoRDFWriter
         {
             if ( a_structure.isHasCfgImage() )
             {
-                Image t_image = new Image(URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=cfg&filetype=png");
+            	String uri;
+            	if (namespace.equalsIgnoreCase("glyspace")) {
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=png&notation=cfg";
+            	} else {
+            		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=cfg&filetype=png";
+            	}	
+                Image t_image = new Image(uri);
                 t_image.setHasSymbolFormat(SymbolFormat.symbol_format_cfg);
                 t_image.setFormat("image/jpeg");
                 a_glycan.addHasImage(t_image);
-                t_image = new Image(URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=cfg&filetype=svg");
+                
+                if (namespace.equalsIgnoreCase("glyspace")) {
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=svg&notation=cfg";
+            	} else {
+            		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=cfg&filetype=svg";
+            	}
+                t_image = new Image(uri);
                 t_image.setHasSymbolFormat(SymbolFormat.symbol_format_cfg);
                 t_image.setFormat("image/svg+xml");
                 a_glycan.addHasImage(t_image);
             }
             if ( a_structure.isHasOxImag() )
             {
-                Image t_image = new Image(URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=oxford&filetype=png");
+            	String uri;
+            	if (namespace.equalsIgnoreCase("glyspace")) {
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=png&notation=uoxf";
+            	} else {
+            		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=oxford&filetype=png";
+            	}
+                Image t_image = new Image(uri);
                 t_image.setHasSymbolFormat(SymbolFormat.symbol_format_uoxf);
                 t_image.setFormat("image/jpeg");
                 a_glycan.addHasImage(t_image);
-                t_image = new Image(URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=oxford&filetype=svg");
+                if (namespace.equalsIgnoreCase("glyspace")) {
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=svg&notation=uoxf";
+            	} else {
+            		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=oxford&filetype=svg";
+            	}
+                t_image = new Image(uri);
                 t_image.setHasSymbolFormat(SymbolFormat.symbol_format_uoxf);
                 t_image.setFormat("image/svg+xml");
                 a_glycan.addHasImage(t_image);
             }
             if ( a_structure.isHasIupacImage() )
             {
-                Image t_image = new Image(URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=iupac&filetype=png");
+            	String uri;
+            	if (namespace.equalsIgnoreCase("glyspace")) {
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=png&notation=iupac";
+            	} else {
+            		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=iupac&filetype=png";
+            	}
+                Image t_image = new Image(uri);
                 t_image.setHasSymbolFormat(SymbolFormat.symbol_format_text);
                 t_image.setFormat("image/jpeg");
                 a_glycan.addHasImage(t_image);
-                t_image = new Image(URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=iupac&filetype=svg");
+                if (namespace.equalsIgnoreCase("glyspace")) {
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=svg&notation=iupac";
+            	} else {
+            		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=iupac&filetype=svg";
+            	}
+                t_image = new Image();
                 t_image.setHasSymbolFormat(SymbolFormat.symbol_format_text);
                 t_image.setFormat("image/svg+xml");
                 a_glycan.addHasImage(t_image);

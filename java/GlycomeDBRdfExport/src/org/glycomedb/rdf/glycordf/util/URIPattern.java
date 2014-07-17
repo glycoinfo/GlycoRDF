@@ -2,6 +2,12 @@ package org.glycomedb.rdf.glycordf.util;
 
 public class URIPattern
 {
+	
+	public static String glyspace_image = "http://www.glyspace.org/service/glycans/[?id?]/image";
+	public static String glyspace_glycan = "http://www.glycoinfo.org/rdf/glycan/[?id?]";
+	public static String glyspace_sequence = "http://www.glycoinfo.org/rdf/sequence/[?id?]";
+	public static String glyspace_component = "http://www.glycoinfo.org/rdf/component/[?id?]";
+	
     public static String glycomedb_image = "http://www.glycome-db.org/getSugarImage.action?id=[?id?]";
 
     public static String glycomedb_glycan = "http://rdf.glycome-db.org/glycan/[?id?]";

@@ -12,8 +12,16 @@ public class Structure
     private boolean m_hasCfgImage = false;
     private boolean m_hasOxImag = false;
     private boolean m_hasIupacImage = false;
+    
+    private String accessionNumber;
 
-    public Integer getId() {
+    public String getAccessionNumber() {
+		return accessionNumber;
+	}
+	public void setAccessionNumber(String accessionNumber) {
+		this.accessionNumber = accessionNumber;
+	}
+	public Integer getId() {
         return m_id;
     }
     public void setId(Integer a_id) {
