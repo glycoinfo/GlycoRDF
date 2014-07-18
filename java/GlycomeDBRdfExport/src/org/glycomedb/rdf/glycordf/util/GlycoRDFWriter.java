@@ -448,7 +448,13 @@ public class GlycoRDFWriter
                 t_exporter.setGlycanId(a_structure.getId().toString());
                 t_exporter.start(a_sugar);
                 String t_sequenceXML = t_exporter.getXMLCode();
-                this.addGlycoSequence(URIPattern.getURI(URIPattern.glycomedb_sequence,a_structure.getId().toString()) + "/glyde",
+                String uri;
+            	if (namespace.equalsIgnoreCase("glyspace")) {
+            		uri = URIPattern.getURI(URIPattern.glyspace_sequence,a_structure.getId().toString()) + "/glyde";
+            	} else {
+            		uri = URIPattern.getURI(URIPattern.glycomedb_sequence,a_structure.getId().toString()) + "/glyde";
+            	}
+                this.addGlycoSequence(uri,
                         CarbohydrateFormat.carbohydrate_format_glyde2, t_sequenceXML, a_glycan);
             }
             catch (Exception e)
@@ -466,7 +472,13 @@ public class GlycoRDFWriter
                 t_sugarNew = t_visitorFromCT.getNormalizedSugar();
                 SugarExporterCarbBank t_exporterTarget = new SugarExporterCarbBank();
                 String t_newSequence = t_exporterTarget.export(t_sugarNew);
-                this.addGlycoSequence(URIPattern.getURI(URIPattern.glycomedb_sequence,a_structure.getId().toString()) + "/carbbank",
+                String uri;
+            	if (namespace.equalsIgnoreCase("glyspace")) {
+            		uri = URIPattern.getURI(URIPattern.glyspace_sequence,a_structure.getId().toString()) + "/carbbank";
+            	} else {
+            		uri = URIPattern.getURI(URIPattern.glycomedb_sequence,a_structure.getId().toString()) + "/carbbank";
+            	}
+                this.addGlycoSequence(uri,
                         CarbohydrateFormat.carbohydrate_format_carbbank, t_newSequence, a_glycan);
             }
             catch (Exception e)
@@ -484,7 +496,13 @@ public class GlycoRDFWriter
                 t_sugarNew = t_visitorFromCT.getNormalizedSugar();
                 SugarExporterLinucs t_exporterTarget = new SugarExporterLinucs();
                 String t_newSequence = t_exporterTarget.export(t_sugarNew);
-                this.addGlycoSequence(URIPattern.getURI(URIPattern.glycomedb_sequence,a_structure.getId().toString()) + "/linucs",
+                String uri;
+            	if (namespace.equalsIgnoreCase("glyspace")) {
+            		uri = URIPattern.getURI(URIPattern.glyspace_sequence,a_structure.getId().toString()) + "/linucs";
+            	} else {
+            		uri = URIPattern.getURI(URIPattern.glycomedb_sequence,a_structure.getId().toString()) + "/linucs";
+            	}
+                this.addGlycoSequence(uri,
                         CarbohydrateFormat.carbohydrate_format_linucs, t_newSequence, a_glycan);
             }
             catch (Exception e)
@@ -504,7 +522,13 @@ public class GlycoRDFWriter
                 t_exporterTarget.setId(a_structure.getId().toString());
                 t_exporterTarget.setHashAnomer(t_visitorFromCT.getHashAnomer());
                 String t_newSequence = t_exporterTarget.export(t_sugarNew);
-                this.addGlycoSequence(URIPattern.getURI(URIPattern.glycomedb_sequence,a_structure.getId().toString()) + "/kcf",
+                String uri;
+            	if (namespace.equalsIgnoreCase("glyspace")) {
+            		uri = URIPattern.getURI(URIPattern.glyspace_sequence,a_structure.getId().toString()) + "/kcf";
+            	} else {
+            		uri = URIPattern.getURI(URIPattern.glycomedb_sequence,a_structure.getId().toString()) + "/kcf";
+            	}
+                this.addGlycoSequence(uri,
                         CarbohydrateFormat.carbohydrate_format_linucs, t_newSequence, a_glycan);
             }
             catch (Exception e)
@@ -544,7 +568,7 @@ public class GlycoRDFWriter
             {
             	String uri;
             	if (namespace.equalsIgnoreCase("glyspace")) {
-            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=png&notation=cfg";
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "?style=extended&format=png&notation=cfg";
             	} else {
             		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=cfg&filetype=png";
             	}	
@@ -554,7 +578,7 @@ public class GlycoRDFWriter
                 a_glycan.addHasImage(t_image);
                 
                 if (namespace.equalsIgnoreCase("glyspace")) {
-            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=svg&notation=cfg";
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "?style=extended&format=svg&notation=cfg";
             	} else {
             		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=cfg&filetype=svg";
             	}
@@ -567,7 +591,7 @@ public class GlycoRDFWriter
             {
             	String uri;
             	if (namespace.equalsIgnoreCase("glyspace")) {
-            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=png&notation=uoxf";
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "?style=extended&format=png&notation=uoxf";
             	} else {
             		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=oxford&filetype=png";
             	}
@@ -576,7 +600,7 @@ public class GlycoRDFWriter
                 t_image.setFormat("image/jpeg");
                 a_glycan.addHasImage(t_image);
                 if (namespace.equalsIgnoreCase("glyspace")) {
-            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=svg&notation=uoxf";
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "?style=extended&format=svg&notation=uoxf";
             	} else {
             		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=oxford&filetype=svg";
             	}
@@ -589,7 +613,7 @@ public class GlycoRDFWriter
             {
             	String uri;
             	if (namespace.equalsIgnoreCase("glyspace")) {
-            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=png&notation=iupac";
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "?style=extended&format=png&notation=iupac";
             	} else {
             		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=iupac&filetype=png";
             	}
@@ -598,7 +622,7 @@ public class GlycoRDFWriter
                 t_image.setFormat("image/jpeg");
                 a_glycan.addHasImage(t_image);
                 if (namespace.equalsIgnoreCase("glyspace")) {
-            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "&format=svg&notation=iupac";
+            		uri = URIPattern.getURI(URIPattern.glyspace_image,a_structure.getAccessionNumber()) + "?style=extended&format=svg&notation=iupac";
             	} else {
             		uri = URIPattern.getURI(URIPattern.glycomedb_image,a_structure.getId().toString()) + "&type=iupac&filetype=svg";
             	}
