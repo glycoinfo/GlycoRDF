@@ -13,7 +13,7 @@
 
 <http://purl.jp/bio/12/glyco/glycan> rdf:type :Ontology ;
                                      
-                                     :versionInfo "1.0.1"^^xsd:string ;
+                                     :versionInfo "1.00"^^xsd:string ;
                                      
                                      dc:date "2013-02-10 23:11:00"^^xsd:dateTime ;
                                      
@@ -255,19 +255,6 @@
 
 
 
-###  http://purl.jp/bio/12/glyco/glycan#has_compound
-
-<http://purl.jp/bio/12/glyco/glycan#has_compound> rdf:type :FunctionalProperty ,
-                                                           :ObjectProperty ;
-                                                  
-                                                  rdfs:comment "The molecule referenced by this subject."^^xsd:string ;
-                                                  
-                                                  rdfs:range <http://purl.jp/bio/12/glyco/glycan#compound> ;
-                                                  
-                                                  rdfs:domain <http://purl.jp/bio/12/glyco/glycan#referenced_compound> .
-
-
-
 ###  http://purl.jp/bio/12/glyco/glycan#has_configuration
 
 <http://purl.jp/bio/12/glyco/glycan#has_configuration> rdf:type :ObjectProperty ;
@@ -457,6 +444,19 @@
                                                              rdfs:domain <http://purl.jp/bio/12/glyco/glycan#mass_spectrum> ;
                                                              
                                                              rdfs:range <http://purl.jp/bio/12/glyco/glycan#msn_spectrum> .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_glycan
+
+<http://purl.jp/bio/12/glyco/glycan#has_glycan> rdf:type :FunctionalProperty ,
+                                                         :ObjectProperty ;
+                                                
+                                                rdfs:comment "The glycan object referenced by this subject."^^xsd:string ;
+                                                
+                                                rdfs:domain <http://purl.jp/bio/12/glyco/glycan#referenced_compound> ;
+                                                
+                                                rdfs:range <http://purl.jp/bio/12/glyco/glycan#saccharide> .
 
 
 

@@ -1,0 +1,2 @@
+- rename has_glycan to has_compound
+- change range of has_compound from Saccharide to Compound
