@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<queries>
+
+    <query name = "comment">
+        <![CDATA[
+            PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+            SELECT ?comment WHERE { 
+                <##replace##> rdfs:comment ?comment .
+            }
+        ]]>
+    </query>
+
+    <query name = "label">
+        <![CDATA[
+            PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+            SELECT ?label WHERE { 
+                <##replace##> rdfs:label ?label .
+            }
+        ]]>
+    </query>
+
+    <query name = "predicate">
+        <![CDATA[
+            PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+            PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl: <http://www.w3.org/2002/07/owl#>
+            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+            SELECT ?predicate WHERE { 
+                {   ?predicate rdfs:domain <##replace##>  } 
+                UNION 
+                {
+                    ?predicate rdfs:domain ?u .
+                    ?u owl:unionOf ?l .
+                    ?l rdf:rest*/rdf:first <##replace##> .
+                }
+            }
+        ]]>
+    </query>
+
+    <query name = "predicate_range">
+        <![CDATA[
+            PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+            SELECT ?range WHERE { 
+                <##replace##> rdfs:range ?range .
+            }
+        ]]>
+    </query>
+
+    <query name = "instance">
+        <![CDATA[
+            PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            SELECT ?instance WHERE { 
+                 ?instance rdf:type <##replace##> .
+            }
+        ]]>
+    </query>
+
+    <query name = "functional_predicates">
+        <![CDATA[
+            PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl:<http://www.w3.org/2002/07/owl#>
+            SELECT ?p WHERE { 
+                 ?p rdf:type owl:FunctionalProperty .
+            }
+        ]]>
+    </query>
+
+    <query name = "classes">
+        <![CDATA[
+            PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl:<http://www.w3.org/2002/07/owl#>
+            SELECT ?c WHERE { 
+                ?c rdf:type owl:Class .
+            }
+        ]]>
+    </query>
+
+    <query name = "subclass">
+        <![CDATA[
+            PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>
+            SELECT ?c WHERE { 
+                <##replace##> rdfs:subClassOf ?c .
+            }
+        ]]>
+    </query>
+
+    <query name = "class_for_instance">
+        <![CDATA[
+            PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            PREFIX owl:<http://www.w3.org/2002/07/owl#>
+            SELECT ?c WHERE { 
+                <##replace##> rdf:type ?c .
+                ?c rdf:type owl:Class ;
+            }
+        ]]>
+    </query>
+
+    <query name = "all_instance">
+        <![CDATA[
+            PREFIX owl:<http://www.w3.org/2002/07/owl#>
+            PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+            SELECT ?instance WHERE { 
+                 ?instance rdf:type owl:NamedIndividual .
+            }
+        ]]>
+    </query>
+</queries>

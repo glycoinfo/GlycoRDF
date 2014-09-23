@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<documentation>
+    <namespaces>
+        <namespace prefix="glycan" uri="http://purl.jp/bio/12/glyco/glycan#" />
+        <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" />
+        <namespace prefix="rdfs" uri="http://www.w3.org/2000/01/rdf-schema#" />
+        <namespace prefix="foaf" uri="http://xmlns.com/foaf/0.1/" />
+        <namespace prefix="xsd" uri="http://www.w3.org/2001/XMLSchema#" />
+        <namespace prefix="owl" uri="http://www.w3.org/2002/07/owl#" />
+        <namespace prefix="rdf" uri="http://www.w3.org/1999/02/22-rdf-syntax-ns#" />
+        <namespace prefix="bibo" uri="http://purl.org/ontology/bibo/" />
+        <namespace prefix="dcterms" uri="http://purl.org/dc/terms/" />
+    </namespaces>
+    <texts>
+        <text id="document_title">GlycoRDF version 0.17</text>
+        <text id="namespace">The following RDF namespaces and prefixes will be used in the documentation.</text>
+    </texts>
+    <classes>
+        <class order="1" name="http://purl.jp/bio/12/glyco/glycan#carbohydrate_format" instances="true">
+        </class>
+        <class order="2" name="http://purl.jp/bio/12/glyco/glycan#citation" instances="true">
+        </class>
+        <class order="3" name="http://purl.jp/bio/12/glyco/glycan#component" instances="true">
+        </class>
+        <class order="4" name="http://purl.jp/bio/12/glyco/glycan#compound" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#aglycon" instances="true">
+                <class order="1" name="http://purl.jp/bio/12/glyco/glycan#lipid" instances="true">
+                </class>
+                <class order="2" name="http://purl.jp/bio/12/glyco/glycan#peptide" instances="true">
+                </class>
+                <class order="3" name="http://purl.jp/bio/12/glyco/glycan#protein" instances="true">
+                </class>
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#amino_acid" instances="true">
+            </class>
+            <class order="3" name="http://purl.jp/bio/12/glyco/glycan#glycoconjugate" instances="true">
+                <class order="1" name="http://purl.jp/bio/12/glyco/glycan#glycolipid" instances="true">
+                </class>
+                <class order="2" name="http://purl.jp/bio/12/glyco/glycan#glycopeptide" instances="true">
+                </class>
+                <class order="3" name="http://purl.jp/bio/12/glyco/glycan#glycoprotein" instances="true">
+                </class>
+                <class order="4" name="http://purl.jp/bio/12/glyco/glycan#glycoside" instances="true">
+                </class>
+                <class order="5" name="http://purl.jp/bio/12/glyco/glycan#glycosylated_AA" instances="true">
+                </class>
+            </class>
+            <class order="4" name="http://purl.jp/bio/12/glyco/glycan#saccharide" instances="true">
+                <class order="1" name="http://purl.jp/bio/12/glyco/glycan#N-glycan" instances="true">
+                </class>
+                <class order="2" name="http://purl.jp/bio/12/glyco/glycan#O-glycan" instances="true">
+                </class>
+                <class order="3" name="http://purl.jp/bio/12/glyco/glycan#cyclic_glycan" instances="true">
+                </class>
+                <class order="4" name="http://purl.jp/bio/12/glyco/glycan#monosaccharide" instances="true">
+                </class>
+                <class order="5" name="http://purl.jp/bio/12/glyco/glycan#polysaccharide" instances="true">
+                </class>
+            </class>
+        </class>
+        <class order="5" name="http://purl.jp/bio/12/glyco/glycan#evidence" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#evidence_binding" instances="true">
+                <class order="1" name="http://purl.jp/bio/12/glyco/glycan#evidence_binding_antibody" instances="true">
+                </class>
+                <class order="2" name="http://purl.jp/bio/12/glyco/glycan#evidence_binding_lectin" instances="true">
+                </class>
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#evidence_ce" instances="true">
+            </class>
+            <class order="3" name="http://purl.jp/bio/12/glyco/glycan#evidence_lc" instances="true">
+            </class>
+            <class order="4" name="http://purl.jp/bio/12/glyco/glycan#evidence_ms" instances="true">
+                <class order="1" name="http://purl.jp/bio/12/glyco/glycan#evidence_lc_ms" instances="true">
+                    <class order="1" name="http://purl.jp/bio/12/glyco/glycan#evidence_IGOT" instances="true">
+                    </class>
+                </class>
+            </class>
+            <class order="5" name="http://purl.jp/bio/12/glyco/glycan#evidence_nmr" instances="true">
+            </class>
+        </class>
+        <class order="6" name="http://purl.jp/bio/12/glyco/glycan#evidence_type" instances="true">
+        </class>
+        <class order="7" name="http://purl.jp/bio/12/glyco/glycan#glycan_database" instances="true">
+        </class>
+        <class order="8" name="http://purl.jp/bio/12/glyco/glycan#glycan_database_category" instances="true">
+        </class>
+        <class order="9" name="http://purl.jp/bio/12/glyco/glycan#lc_property" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#gradient" instances="true">
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#lc_chromatogram" instances="true">
+            </class>
+            <class order="3" name="http://purl.jp/bio/12/glyco/glycan#lc_column" instances="true">
+            </class>
+            <class order="4" name="http://purl.jp/bio/12/glyco/glycan#lc_digest_chromatogram" instances="true">
+            </class>
+            <class order="5" name="http://purl.jp/bio/12/glyco/glycan#lc_peak" instances="true">
+            </class>
+        </class>
+        <class order="10" name="http://purl.jp/bio/12/glyco/glycan#monosaccharide_property" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#absolute_configuration" instances="true">
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#anomer" instances="true">
+            </class>
+            <class order="3" name="http://purl.jp/bio/12/glyco/glycan#basetype" instances="true">
+            </class>
+            <class order="4" name="http://purl.jp/bio/12/glyco/glycan#configuration" instances="true">
+            </class>
+            <class order="5" name="http://purl.jp/bio/12/glyco/glycan#core_modification" instances="true">
+            </class>
+            <class order="6" name="http://purl.jp/bio/12/glyco/glycan#core_modification_type" instances="true">
+            </class>
+            <class order="7" name="http://purl.jp/bio/12/glyco/glycan#linkage_type" instances="true">
+            </class>
+            <class order="8" name="http://purl.jp/bio/12/glyco/glycan#monosaccharide_alias" instances="true">
+            </class>
+            <class order="9" name="http://purl.jp/bio/12/glyco/glycan#monosaccharide_notation_scheme" instances="true">
+            </class>
+            <class order="10" name="http://purl.jp/bio/12/glyco/glycan#relative_configuration" instances="true">
+            </class>
+            <class order="11" name="http://purl.jp/bio/12/glyco/glycan#ring_type" instances="true">
+            </class>
+            <class order="12" name="http://purl.jp/bio/12/glyco/glycan#substituent" instances="true">
+            </class>
+            <class order="13" name="http://purl.jp/bio/12/glyco/glycan#substituent_linkage" instances="true">
+            </class>
+            <class order="14" name="http://purl.jp/bio/12/glyco/glycan#substituent_type" instances="true">
+            </class>
+        </class>
+        <class order="11" name="http://purl.jp/bio/12/glyco/glycan#motif" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#biological_repeat_unit" instances="true">
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#chemical_repeat_unit" instances="true">
+            </class>
+            <class order="3" name="http://purl.jp/bio/12/glyco/glycan#glycan_motif" instances="true">
+                <class order="1" name="http://purl.jp/bio/12/glyco/glycan#glycan_epitope" instances="true">
+                </class>
+            </class>
+        </class>
+        <class order="12" name="http://purl.jp/bio/12/glyco/glycan#ms_property" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#adduct" instances="true">
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#adduct_ion" instances="true">
+            </class>
+            <class order="3" name="http://purl.jp/bio/12/glyco/glycan#mass_spectrometry_device" instances="true">
+            </class>
+            <class order="4" name="http://purl.jp/bio/12/glyco/glycan#mass_spectrum" instances="true">
+                <class order="1" name="http://purl.jp/bio/12/glyco/glycan#msn_spectrum" instances="true">
+                </class>
+                <class order="2" name="http://purl.jp/bio/12/glyco/glycan#profile_spectrum" instances="true">
+                </class>
+            </class>
+            <class order="5" name="http://purl.jp/bio/12/glyco/glycan#ms_annotation" instances="true">
+            </class>
+            <class order="6" name="http://purl.jp/bio/12/glyco/glycan#ms_fragment_type" instances="true">
+            </class>
+            <class order="7" name="http://purl.jp/bio/12/glyco/glycan#ms_peak" instances="true">
+            </class>
+            <class order="8" name="http://purl.jp/bio/12/glyco/glycan#neutral_loss" instances="true">
+            </class>
+        </class>
+        <class order="13" name="http://purl.jp/bio/12/glyco/glycan#nmr_property" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#signal" instances="true">
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#subspectrum" instances="true">
+            </class>
+        </class>
+        <class order="14" name="http://purl.jp/bio/12/glyco/glycan#polymerization_degree" instances="true">
+        </class>
+        <class order="15" name="http://purl.jp/bio/12/glyco/glycan#reaction" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#glycosyl_hydrolase_reaction" instances="true">
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#glycosyltransferase_reaction" instances="true">
+            </class>
+            <class order="3" name="http://purl.jp/bio/12/glyco/glycan#sulfotransferase_reaction" instances="true">
+            </class>
+        </class>
+        <class order="16" name="http://purl.jp/bio/12/glyco/glycan#referenced_compound" instances="true">
+        </class>
+        <class order="17" name="http://purl.jp/bio/12/glyco/glycan#repeat_attribute" instances="true">
+        </class>
+        <class order="18" name="http://purl.jp/bio/12/glyco/glycan#resource_entry" instances="true">
+        </class>
+        <class order="19" name="http://purl.jp/bio/12/glyco/glycan#role" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#buffer" instances="true">
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#enzyme" instances="true">
+            </class>
+            <class order="3" name="http://purl.jp/bio/12/glyco/glycan#glycan_binder" instances="true">
+                <class order="1" name="http://purl.jp/bio/12/glyco/glycan#antibody" instances="true">
+                </class>
+                <class order="2" name="http://purl.jp/bio/12/glyco/glycan#lectin" instances="true">
+                </class>
+            </class>
+            <class order="4" name="http://purl.jp/bio/12/glyco/glycan#solvent" instances="true">
+            </class>
+        </class>
+        <class order="20" name="http://purl.jp/bio/12/glyco/glycan#sample_preparation" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#glycan_release" instances="true">
+                <class order="1" name="http://purl.jp/bio/12/glyco/glycan#chemical_release" instances="true">
+                </class>
+                <class order="2" name="http://purl.jp/bio/12/glyco/glycan#enzymatic_release" instances="true">
+                </class>
+            </class>
+        </class>
+        <class order="21" name="http://purl.jp/bio/12/glyco/glycan#sequence" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#glycoconjugate_sequence" instances="true">
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#glycosequence" instances="true">
+            </class>
+        </class>
+        <class order="22" name="http://purl.jp/bio/12/glyco/glycan#software" instances="true">
+        </class>
+        <class order="23" name="http://purl.jp/bio/12/glyco/glycan#solvent_part" instances="true">
+        </class>
+        <class order="24" name="http://purl.jp/bio/12/glyco/glycan#source" instances="true">
+            <class order="1" name="http://purl.jp/bio/12/glyco/glycan#source_modeled" instances="true">
+            </class>
+            <class order="2" name="http://purl.jp/bio/12/glyco/glycan#source_natural" instances="true">
+            </class>
+            <class order="3" name="http://purl.jp/bio/12/glyco/glycan#source_sample" instances="true">
+            </class>
+            <class order="4" name="http://purl.jp/bio/12/glyco/glycan#source_synthetic" instances="true">
+            </class>
+        </class>
+        <class order="25" name="http://purl.jp/bio/12/glyco/glycan#symbol_format" instances="true">
+        </class>
+        <class order="26" name="http://purl.jp/bio/12/glyco/glycan#synthetic_type" instances="true">
+        </class>
+    </classes>
+</documentation>
