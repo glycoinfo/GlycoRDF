@@ -1055,6 +1055,19 @@
 
 
 
+###  http://purl.jp/bio/12/glyco/glycan#in_glycan_repository
+
+<http://purl.jp/bio/12/glyco/glycan#in_glycan_repository> rdf:type :FunctionalProperty ,
+                                                                   :ObjectProperty ;
+                                                          
+                                                          rdfs:comment "This property indicate repository for the resource entry URL."^^xsd:string ;
+                                                          
+                                                          rdfs:range <http://purl.jp/bio/12/glyco/glycan#repository> ;
+                                                          
+                                                          rdfs:domain <http://purl.jp/bio/12/glyco/glycan#resource_entry> .
+
+
+
 ###  http://purl.jp/bio/12/glyco/glycan#is_from_source
 
 <http://purl.jp/bio/12/glyco/glycan#is_from_source> rdf:type :ObjectProperty ;
