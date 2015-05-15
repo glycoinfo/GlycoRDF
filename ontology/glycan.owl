@@ -13,7 +13,7 @@
 
 <http://purl.jp/bio/12/glyco/glycan> rdf:type :Ontology ;
                                      
-                                     :versionInfo "1.0.1"^^xsd:string ;
+                                     :versionInfo "1.0.2"^^xsd:string ;
                                      
                                      dc:date "2013-02-10 23:11:00"^^xsd:dateTime ;
                                      
@@ -2956,7 +2956,8 @@ bibo:volume rdf:type :DatatypeProperty ,
                                                   
                                                   rdfs:label "Glycan Motif"^^xsd:string ;
                                                   
-                                                  rdfs:subClassOf <http://purl.jp/bio/12/glyco/glycan#motif> ;
+                                                  rdfs:subClassOf <http://purl.jp/bio/12/glyco/glycan#motif> ,
+                                                                  <http://purl.jp/bio/12/glyco/glycan#saccharide> ;
                                                   
                                                   rdfs:comment "A glycan motif is a sub-structure of glycans that has been named because of its frequent appearance or because of the biological meaning. "^^xsd:string .
 
@@ -4950,6 +4951,23 @@ uniprot:Taxon rdfs:comment "Uniprot taxon class."^^xsd:string .
 
 
 
+###  http://purl.jp/bio/12/glyco/glycan#database_glytoucan
+
+<http://purl.jp/bio/12/glyco/glycan#database_glytoucan> rdf:type <http://purl.jp/bio/12/glyco/glycan#glycan_database> ,
+                                                                 :NamedIndividual ;
+                                                        
+                                                        rdfs:label "GlyTouCan"^^xsd:string ;
+                                                        
+                                                        <http://xmlns.com/foaf/0.1/name> "GlyTouCan"^^xsd:string ;
+                                                        
+                                                        <http://purl.jp/bio/12/glyco/glycan#has_abbreviation> "GlyTouCan"^^xsd:string ;
+                                                        
+                                                        rdfs:seeAlso "http://www.glytoucan.org"^^xsd:anyURI ;
+                                                        
+                                                        <http://purl.jp/bio/12/glyco/glycan#has_url_template> "http://www.glytoucan.org/Structures/Glycans/[?id?]"^^xsd:string .
+
+
+
 ###  http://purl.jp/bio/12/glyco/glycan#database_jcggdb
 
 <http://purl.jp/bio/12/glyco/glycan#database_jcggdb> rdf:type <http://purl.jp/bio/12/glyco/glycan#glycan_database> ,
@@ -6150,6 +6168,17 @@ Note (2): The GLYCAM notation is not yet supported by the notation parsing routi
 
 
 
+###  http://purl.jp/bio/12/glyco/glycan#symbol_format_cfg_uoxf
+
+<http://purl.jp/bio/12/glyco/glycan#symbol_format_cfg_uoxf> rdf:type <http://purl.jp/bio/12/glyco/glycan#symbol_format> ,
+                                                                     :NamedIndividual ;
+                                                            
+                                                            rdfs:label "cfg uoxf"^^xsd:string ;
+                                                            
+                                                            rdfs:comment "Notation where symbol is CFG and linkage position is UOXF."^^xsd:string .
+
+
+
 ###  http://purl.jp/bio/12/glyco/glycan#symbol_format_text
 
 <http://purl.jp/bio/12/glyco/glycan#symbol_format_text> rdf:type <http://purl.jp/bio/12/glyco/glycan#symbol_format> ,
@@ -6180,6 +6209,17 @@ Note (2): The GLYCAM notation is not yet supported by the notation parsing routi
                                                            rdfs:label "uoxf bw"^^xsd:string ;
                                                            
                                                            rdfs:comment "UOXF symbol that is displayed black and white notation."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#symbol_format_uoxf_color
+
+<http://purl.jp/bio/12/glyco/glycan#symbol_format_uoxf_color> rdf:type <http://purl.jp/bio/12/glyco/glycan#symbol_format> ,
+                                                                       :NamedIndividual ;
+                                                              
+                                                              rdfs:label "uoxf color"^^xsd:string ;
+                                                              
+                                                              rdfs:comment "UOXF symbol that is displayed color notation."^^xsd:string .
 
 
 
