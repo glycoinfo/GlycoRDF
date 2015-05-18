@@ -1055,19 +1055,6 @@
 
 
 
-###  http://purl.jp/bio/12/glyco/glycan#in_glycan_repository
-
-<http://purl.jp/bio/12/glyco/glycan#in_glycan_repository> rdf:type :FunctionalProperty ,
-                                                                   :ObjectProperty ;
-                                                          
-                                                          rdfs:comment "This property indicate repository for the resource entry URL."^^xsd:string ;
-                                                          
-                                                          rdfs:range <http://purl.jp/bio/12/glyco/glycan#repository> ;
-                                                          
-                                                          rdfs:domain <http://purl.jp/bio/12/glyco/glycan#resource_entry> .
-
-
-
 ###  http://purl.jp/bio/12/glyco/glycan#is_from_source
 
 <http://purl.jp/bio/12/glyco/glycan#is_from_source> rdf:type :ObjectProperty ;
@@ -3484,16 +3471,6 @@ http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=o-dall-HEX-0:0"""
 
 
 
-###  http://purl.jp/bio/12/glyco/glycan#repository
-
-<http://purl.jp/bio/12/glyco/glycan#repository> rdf:type :Class ;
-                                                
-                                                rdfs:label "Repository"^^xsd:string ;
-                                                
-                                                rdfs:comment "A class representing repositories that store glycans information by registration."^^xsd:string .
-
-
-
 ###  http://purl.jp/bio/12/glyco/glycan#resource_entry
 
 <http://purl.jp/bio/12/glyco/glycan#resource_entry> rdf:type :Class ;
@@ -4974,6 +4951,25 @@ uniprot:Taxon rdfs:comment "Uniprot taxon class."^^xsd:string .
 
 
 
+###  http://purl.jp/bio/12/glyco/glycan#database_glytoucan
+
+<http://purl.jp/bio/12/glyco/glycan#database_glytoucan> rdf:type <http://purl.jp/bio/12/glyco/glycan#glycan_database> ,
+                                                                 :NamedIndividual ;
+                                                        
+                                                        rdfs:label "GlyTouCan"^^xsd:string ;
+                                                        
+                                                        <http://xmlns.com/foaf/0.1/name> "GlyTouCan"^^xsd:string ;
+                                                        
+                                                        <http://purl.jp/bio/12/glyco/glycan#has_abbreviation> "GlyTouCan"^^xsd:string ;
+                                                        
+                                                        rdfs:seeAlso "http://www.glytoucan.org"^^xsd:anyURI ;
+                                                        
+                                                        <http://purl.jp/bio/12/glyco/glycan#has_url_template> "http://www.glytoucan.org/Structures/Glycans/[?id?]"^^xsd:string ;
+                                                        
+                                                        rdfs:comment "The glycan structure repository."@en .
+
+
+
 ###  http://purl.jp/bio/12/glyco/glycan#database_jcggdb
 
 <http://purl.jp/bio/12/glyco/glycan#database_jcggdb> rdf:type <http://purl.jp/bio/12/glyco/glycan#glycan_database> ,
@@ -5689,23 +5685,6 @@ Note (2): The GLYCAM notation is not yet supported by the notation parsing routi
                                                                        :NamedIndividual ;
                                                               
                                                               rdfs:label "unknown"^^xsd:string .
-
-
-
-###  http://purl.jp/bio/12/glyco/glycan#repository_glytoucan
-
-<http://purl.jp/bio/12/glyco/glycan#repository_glytoucan> rdf:type <http://purl.jp/bio/12/glyco/glycan#repository> ,
-                                                                   :NamedIndividual ;
-                                                          
-                                                          rdfs:label "GlyTouCan"^^xsd:string ;
-                                                          
-                                                          <http://purl.jp/bio/12/glyco/glycan#has_abbreviation> "GlyTouCan"^^xsd:string ;
-                                                          
-                                                          <http://xmlns.com/foaf/0.1/name> "GlyTouCan"^^xsd:string ;
-                                                          
-                                                          rdfs:seeAlso "http://www.glytoucan.org"^^xsd:anyURI ;
-                                                          
-                                                          <http://purl.jp/bio/12/glyco/glycan#has_url_template> "http://www.glytoucan.org/Structures/Glycans/[?id?]"^^xsd:string .
 
 
 
