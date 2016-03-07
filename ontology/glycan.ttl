@@ -13,7 +13,7 @@
 
 <http://purl.jp/bio/12/glyco/glycan> rdf:type :Ontology ;
                                      
-                                     :versionInfo "1.0.1"^^xsd:string ;
+                                     :versionInfo "1.1.1"^^xsd:string ;
                                      
                                      dc:date "2013-02-10 23:11:00"^^xsd:dateTime ;
                                      
@@ -26,7 +26,10 @@
                                                 "Philip Toukach"^^xsd:string ,
                                                 "Rene Ranzinger"^^xsd:string ,
                                                 "Shin Kawano"^^xsd:string ,
-                                                "Shujiro Okuda"^^xsd:string .
+                                                "Shujiro Okuda"^^xsd:string ;
+                                     
+                                     :imports <http://semanticscience.org/ontology/cheminf.owl> ,
+                                              <http://semanticscience.org/ontology/sio.owl> .
 
 
 #################################################################
@@ -330,6 +333,20 @@
                                                                rdfs:range <http://purl.jp/bio/12/glyco/glycan#linkage_type> ;
                                                                
                                                                rdfs:domain <http://purl.jp/bio/12/glyco/glycan#substituent_type> .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_derivatized_mass
+
+<http://purl.jp/bio/12/glyco/glycan#has_derivatized_mass> rdf:type :ObjectProperty ;
+                                                          
+                                                          rdfs:label "has derivatized mass"@en ;
+                                                          
+                                                          rdfs:comment ""@en ;
+                                                          
+                                                          rdfs:domain <http://purl.jp/bio/12/glyco/glycan#saccharide> ;
+                                                          
+                                                          rdfs:range <http://semanticscience.org/resource/CHEMINF_000218> .
 
 
 
@@ -2962,6 +2979,16 @@ bibo:volume rdf:type :DatatypeProperty ,
 
 
 
+###  http://purl.jp/bio/12/glyco/glycan#glycan_motif_alias
+
+<http://purl.jp/bio/12/glyco/glycan#glycan_motif_alias> rdf:type :Class ;
+                                                        
+                                                        rdfs:label "Glycan Motif alias"@en ;
+                                                        
+                                                        rdfs:comment "This Glycan Motif has some alias."@en .
+
+
+
 ###  http://purl.jp/bio/12/glyco/glycan#glycan_release
 
 <http://purl.jp/bio/12/glyco/glycan#glycan_release> rdf:type :Class ;
@@ -3520,6 +3547,16 @@ http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=o-dall-HEX-0:0"""
                                                               ] ;
                                                 
                                                 rdfs:comment "Instances of this class represent the molecule information of the glycans. That includes chemical composition, molecular weight but also related information such as images of the glycans."^^xsd:string .
+
+
+
+###  http://purl.jp/bio/12/glyco/glycan#saccharide_alias
+
+<http://purl.jp/bio/12/glyco/glycan#saccharide_alias> rdf:type :Class ;
+                                                      
+                                                      rdfs:label "Saccharide alias"@en ;
+                                                      
+                                                      rdfs:comment "This sacccharide has some alias."@en .
 
 
 
