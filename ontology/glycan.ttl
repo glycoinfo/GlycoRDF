@@ -13,7 +13,7 @@
 
 <http://purl.jp/bio/12/glyco/glycan> rdf:type :Ontology ;
                                      
-                                     :versionInfo "1.1.1"^^xsd:string ;
+                                     :versionInfo "1.1.0"^^xsd:string ;
                                      
                                      dc:date "2013-02-10 23:11:00"^^xsd:dateTime ;
                                      
