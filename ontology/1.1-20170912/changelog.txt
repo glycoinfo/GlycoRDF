@@ -1,0 +1,5 @@
+- Evidence CE and CE Property  
+- Exoglycosidase descriptions added
+- Expanded Evidence Lv with UPLC and RPLC
+- has_protein_name (occassional not possible to create Protein with UniProt
+Accession URL) added to support inclusion of mAb and recombinant proteins
