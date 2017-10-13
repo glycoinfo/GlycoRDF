@@ -1,0 +1,24 @@
+**New Classes**
+* glycan:Glycosylation_site (subClassOf Glycosylation Annotation)
+* glycan:Saccharide (equivalent to glycan:saccharide)
+* glycan:Glycoprotein (equivalent to glycan:glycoprotein)
+* glycan:Citation (equivalent to glycan:citation)
+* glycan:Referenced_compound (equivalent to glycan:referenced_compound)
+* glycan:Source_natural (equivalent to glycan:source_natural)
+
+**New Properties**
+* glycan:glycosylates (doamin; saccharide, range; aglycon)
+* glycan:is_glycosylated_on (domain; glycoconjugate, range; glycosylation site)
+* glycan:has_association (domain; referenced compound)
+
+**Modified class relation**
+* up:Protein (equivalent to glycan:protein)
+
+**Fixed**
+up:Taxon (move to Classes)
+glycan:has_taxon (duplicated, has_taxon is object property)
+glycan:has_strain (duplicated, has_strain is data property)
+
+**Modified**
+- create "has_glycan subClassOf has_compound"
+- added the range of has_compound to "Compound"
