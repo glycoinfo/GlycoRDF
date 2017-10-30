@@ -14,14 +14,14 @@
 <http://purl.jp/bio/12/glyco/glycan> rdf:type owl:Ontology ;
                                       dc:creator "Daisuke Shinmachi"^^xsd:string ,
                                                  "Rene Ranzinger"^^xsd:string ,
-                                                 "Shujiro Okuda"^^xsd:string ;
-                                      owl:versionInfo "1.2"^^xsd:string ;
-                                      dc:creator "Kiyoko Aoki-Kinoshita"^^xsd:string ,
-                                                 "Issaku Yamada"^^xsd:string ,
-                                                 "Shin Kawano"^^xsd:string ,
-                                                 "Philip Toukach"^^xsd:string ;
+                                                 "Shujiro Okuda"^^xsd:string ,
+                                                 "Kiyoko Aoki-Kinoshita"^^xsd:string ;
+                                      owl:versionInfo "1.2.1"^^xsd:string ;
+                                      dc:creator "Issaku Yamada"^^xsd:string ;
                                       dc:date "2013-02-10 23:11:00"^^xsd:dateTime ;
-                                      dc:creator "Matthew Campbell"^^xsd:string ,
+                                      dc:creator "Shin Kawano"^^xsd:string ,
+                                                 "Philip Toukach"^^xsd:string ,
+                                                 "Matthew Campbell"^^xsd:string ,
                                                  "Hiro Sawaki"^^xsd:string ,
                                                  "Masaaki Matsubara"^^xsd:string .
 
@@ -88,7 +88,7 @@
 ###  http://purl.jp/bio/12/glyco/glycan#glycosylates
 :glycosylates rdf:type owl:ObjectProperty ;
               rdfs:domain :Saccharide ;
-              rdfs:range :aglycon ;
+              rdfs:range :Glycosylation_site ;
               rdfs:label "glycosylates"@en .
 
 

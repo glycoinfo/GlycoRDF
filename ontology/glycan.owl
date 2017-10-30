@@ -30,16 +30,20 @@
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Shujiro Okuda</Literal>
     </Annotation>
     <Annotation>
-        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">1.2</Literal>
-    </Annotation>
-    <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:creator"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Kiyoko Aoki-Kinoshita</Literal>
     </Annotation>
     <Annotation>
+        <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">1.2.1</Literal>
+    </Annotation>
+    <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:creator"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Issaku Yamada</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">2013-02-10 23:11:00</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:creator"/>
@@ -48,10 +52,6 @@
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:creator"/>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Philip Toukach</Literal>
-    </Annotation>
-    <Annotation>
-        <AnnotationProperty abbreviatedIRI="dc:date"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#dateTime">2013-02-10 23:11:00</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:creator"/>
@@ -351,10 +351,10 @@
         <NamedIndividual IRI="#monosaccharide_notation_scheme_amber_glycam"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#carbohydrate_format_iupac_extended"/>
+        <NamedIndividual IRI="#gluco"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#gluco"/>
+        <NamedIndividual IRI="#carbohydrate_format_iupac_extended"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#is_trivial_name"/>
@@ -384,10 +384,10 @@
         <DataProperty IRI="#has_organ"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#linkage_type_h_at_oh"/>
+        <NamedIndividual IRI="#glycero"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#glycero"/>
+        <NamedIndividual IRI="#linkage_type_h_at_oh"/>
     </Declaration>
     <Declaration>
         <Class IRI="#lectin"/>
@@ -645,10 +645,10 @@
         <Class abbreviatedIRI="uniprot:Taxon"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#core_modification_type_en"/>
+        <NamedIndividual IRI="#_Fucosidase"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#_Fucosidase"/>
+        <NamedIndividual IRI="#core_modification_type_en"/>
     </Declaration>
     <Declaration>
         <Class IRI="#ms_peak"/>
@@ -1209,10 +1209,10 @@
         <DataProperty IRI="#is_primary_name"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#monosaccharide_alias"/>
+        <ObjectProperty IRI="#used_lc_gradient"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#used_lc_gradient"/>
+        <Class IRI="#monosaccharide_alias"/>
     </Declaration>
     <Declaration>
         <Class IRI="#gradient"/>
@@ -1785,10 +1785,10 @@
         <DataProperty IRI="#has_extended_stereocode"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#symbol_format_uoxf_bw"/>
+        <NamedIndividual IRI="#carbohydrate_format_iupac_condensed"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#carbohydrate_format_iupac_condensed"/>
+        <NamedIndividual IRI="#symbol_format_uoxf_bw"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#ido"/>
@@ -4632,7 +4632,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#glycosylates"/>
-        <Class IRI="#aglycon"/>
+        <Class IRI="#Glycosylation_site"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#has_absolute_configuration"/>

@@ -16,12 +16,12 @@
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Daisuke Shinmachi</dc:creator>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rene Ranzinger</dc:creator>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Shujiro Okuda</dc:creator>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.2</owl:versionInfo>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kiyoko Aoki-Kinoshita</dc:creator>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.2.1</owl:versionInfo>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Issaku Yamada</dc:creator>
+        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-02-10 23:11:00</dc:date>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Shin Kawano</dc:creator>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Philip Toukach</dc:creator>
-        <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-02-10 23:11:00</dc:date>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Matthew Campbell</dc:creator>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hiro Sawaki</dc:creator>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Masaaki Matsubara</dc:creator>
@@ -130,7 +130,7 @@
 
     <owl:ObjectProperty rdf:about="http://purl.jp/bio/12/glyco/glycan#glycosylates">
         <rdfs:domain rdf:resource="http://purl.jp/bio/12/glyco/glycan#Saccharide"/>
-        <rdfs:range rdf:resource="http://purl.jp/bio/12/glyco/glycan#aglycon"/>
+        <rdfs:range rdf:resource="http://purl.jp/bio/12/glyco/glycan#Glycosylation_site"/>
         <rdfs:label xml:lang="en">glycosylates</rdfs:label>
     </owl:ObjectProperty>
     
