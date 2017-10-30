@@ -1,0 +1,3 @@
+**Fixed**
+* glycan:glycosylates (doamin; Saccharide, range; Glycosylation site)
+
