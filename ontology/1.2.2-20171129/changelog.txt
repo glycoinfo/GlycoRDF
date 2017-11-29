@@ -1,0 +1,12 @@
+**Fixed**
+fixed range of some DatatypeProperties to "rdfs:Literal" from "xsd:anyURI"
+
+* has_cell_line
+* has_cell_type
+* has_disease
+* has_fluid
+* has_keyword
+* has_life_stage
+* has_method
+* has_organ
+* has_tissue
