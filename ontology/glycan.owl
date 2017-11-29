@@ -108,13 +108,13 @@
         <DataProperty IRI="#has_cardinality_per_repeat"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#has_ms_level"/>
-    </Declaration>
-    <Declaration>
         <NamedIndividual IRI="#absolute_configuration_laevus"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#evidence_type_hplc"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#has_ms_level"/>
     </Declaration>
     <Declaration>
         <DataProperty abbreviatedIRI="bibo:pageEnd"/>
@@ -240,10 +240,10 @@
         <Class IRI="#glycosylated_AA"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has_uniprot_accession"/>
+        <NamedIndividual IRI="#symbol_format_cfg"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#symbol_format_cfg"/>
+        <ObjectProperty IRI="#has_uniprot_accession"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#is_ambiguous"/>
@@ -252,19 +252,19 @@
         <NamedIndividual IRI="#linkage_type_h_loss"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has_amino_acid_type"/>
+        <DataProperty IRI="#has_phase_description"/>
     </Declaration>
     <Declaration>
         <Class IRI="#glycan_epitope"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#has_coupling_constant"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#substituent_linkage"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#has_phase_description"/>
-    </Declaration>
-    <Declaration>
-        <DataProperty IRI="#has_coupling_constant"/>
+        <ObjectProperty IRI="#has_amino_acid_type"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#repeat_attribute_unknown"/>
@@ -304,6 +304,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#beta1-3_Galactosidase"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Glycosaminoglycan"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#galactotransferase_labeling"/>
@@ -351,10 +354,10 @@
         <NamedIndividual IRI="#monosaccharide_notation_scheme_amber_glycam"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#gluco"/>
+        <NamedIndividual IRI="#carbohydrate_format_iupac_extended"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#carbohydrate_format_iupac_extended"/>
+        <NamedIndividual IRI="#gluco"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#is_trivial_name"/>
@@ -363,10 +366,10 @@
         <NamedIndividual IRI="#carbohydrate_format_carbbank"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#substituent_type_s_methyl"/>
+        <NamedIndividual IRI="#substituent_type_s_pyruvate"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#substituent_type_s_pyruvate"/>
+        <NamedIndividual IRI="#substituent_type_s_methyl"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#of_carbon_number"/>
@@ -379,6 +382,9 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#has_fluid"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Free-origosaccharide"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#has_organ"/>
@@ -399,16 +405,19 @@
         <NamedIndividual IRI="#database_glycomapsdb"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#cyclic_glycan"/>
+        <Class abbreviatedIRI="psi:MS_1000008"/>
     </Declaration>
     <Declaration>
-        <Class abbreviatedIRI="psi:MS_1000008"/>
+        <Class IRI="#cyclic_glycan"/>
     </Declaration>
     <Declaration>
         <Class IRI="#core_modification_type"/>
     </Declaration>
     <Declaration>
         <Class IRI="#evidence_binding_antibody"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:creator"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#has_size"/>
@@ -427,6 +436,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#has_signal"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty abbreviatedIRI="dc:date"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#has_association"/>
@@ -456,10 +468,10 @@
         <ObjectProperty IRI="#has_core_modification"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#monosaccharide_notation_scheme_pdb"/>
+        <NamedIndividual IRI="#repeat_attribute_max"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#repeat_attribute_max"/>
+        <NamedIndividual IRI="#monosaccharide_notation_scheme_pdb"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#d-methionine"/>
@@ -498,10 +510,10 @@
         <NamedIndividual IRI="#altro"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#database_chemspider"/>
+        <ObjectProperty IRI="#has_mass_spectrometry_peak"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has_mass_spectrometry_peak"/>
+        <NamedIndividual IRI="#database_chemspider"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#has_intensity"/>
@@ -567,10 +579,13 @@
         <Class IRI="#CE_Digest_Electrogram"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#manno"/>
+        <Class IRI="#GSL-glycan"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#ribo"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#manno"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#substituent_type_n_glycolyl"/>
@@ -654,10 +669,10 @@
         <Class IRI="#ms_peak"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#glycosyl_hydrolase_reaction"/>
+        <NamedIndividual IRI="#lyxo"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#lyxo"/>
+        <Class IRI="#glycosyl_hydrolase_reaction"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#database_category_tissue"/>
@@ -771,10 +786,10 @@
         <Class IRI="#adduct_ion"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#has_disease"/>
+        <Class IRI="#repeat_attribute"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#repeat_attribute"/>
+        <DataProperty IRI="#has_disease"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#adduct_ion_h"/>
@@ -834,10 +849,10 @@
         <DataProperty IRI="#has_ring_end"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#resource_entry"/>
+        <NamedIndividual IRI="#monosaccharide_notation_scheme_cfg"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#monosaccharide_notation_scheme_cfg"/>
+        <Class IRI="#resource_entry"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#has_retention_time"/>
@@ -855,13 +870,13 @@
         <NamedIndividual IRI="#d-cysteine"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#carbohydrate_format_wurcs"/>
-    </Declaration>
-    <Declaration>
         <Class IRI="#source_natural"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#has_chemical_formula"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#carbohydrate_format_wurcs"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#beta_elimination"/>
@@ -975,10 +990,10 @@
         <ObjectProperty IRI="#has_second_configuration"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#has_default_linking_position2"/>
+        <NamedIndividual IRI="#glycine"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#glycine"/>
+        <DataProperty IRI="#has_default_linking_position2"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#arginine"/>
@@ -1140,10 +1155,10 @@
         <ObjectProperty IRI="#has_relative_configuration"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#database_pubchem"/>
+        <ObjectProperty IRI="#has_repeat_attribute"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has_repeat_attribute"/>
+        <NamedIndividual IRI="#database_pubchem"/>
     </Declaration>
     <Declaration>
         <Class IRI="#biological_repeat_unit"/>
@@ -1272,10 +1287,10 @@
         <NamedIndividual IRI="#_Neuraminidase"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#O-glycan"/>
+        <NamedIndividual IRI="#database_unicarb_db"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#database_unicarb_db"/>
+        <Class IRI="#O-glycan"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#is_fuzzy"/>
@@ -1317,10 +1332,10 @@
         <ObjectProperty IRI="#has_uoxf"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has_mass_analyzer"/>
+        <DataProperty IRI="#has_manufacturer"/>
     </Declaration>
     <Declaration>
-        <DataProperty IRI="#has_manufacturer"/>
+        <ObjectProperty IRI="#has_mass_analyzer"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#core_modification_type_acid"/>
@@ -1341,13 +1356,13 @@
         <Class IRI="#Glycosidase_Treatment"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has_core_modification_type"/>
+        <NamedIndividual IRI="#substituent_type_fluoro"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#used_molecule"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#substituent_type_fluoro"/>
+        <ObjectProperty IRI="#has_core_modification_type"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#has_strain"/>
@@ -1422,10 +1437,10 @@
         <NamedIndividual IRI="#substituent_type_n_ethyl"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has_code"/>
+        <NamedIndividual IRI="#uoxf"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#uoxf"/>
+        <ObjectProperty IRI="#has_code"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#used_solvent"/>
@@ -1473,10 +1488,10 @@
         <NamedIndividual IRI="#PNGaseA_release"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has_epitope"/>
+        <NamedIndividual IRI="#substituent_type_telluro"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#substituent_type_telluro"/>
+        <ObjectProperty IRI="#has_epitope"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#has_glycosylated_AA"/>
@@ -1503,10 +1518,13 @@
         <NamedIndividual IRI="#alpha1-2_Fucosidase"/>
     </Declaration>
     <Declaration>
-        <ObjectProperty IRI="#has_ce_peak"/>
+        <Class IRI="#Glycosphingolipid"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#_Mannosidase"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_ce_peak"/>
     </Declaration>
     <Declaration>
         <Class IRI="#glycoconjugate_sequence"/>
@@ -1545,10 +1563,10 @@
         <NamedIndividual IRI="#database_kegg"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#evidence"/>
+        <NamedIndividual IRI="#core_modification_type_anhydro"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#core_modification_type_anhydro"/>
+        <Class IRI="#evidence"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#substituent_type_n_trimethyl"/>
@@ -1593,10 +1611,10 @@
         <DataProperty abbreviatedIRI="dc:title"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#nmr_property"/>
+        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
     </Declaration>
     <Declaration>
-        <Class IRI="http://xmlns.com/foaf/0.1/Image"/>
+        <Class IRI="#nmr_property"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#used_reference_standard"/>
@@ -1752,10 +1770,10 @@
         <NamedIndividual IRI="#database_category_bibliography"/>
     </Declaration>
     <Declaration>
-        <Class IRI="#Saccharide"/>
+        <NamedIndividual IRI="#core_modification_type_enx"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#core_modification_type_enx"/>
+        <Class IRI="#Saccharide"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#ratio"/>
@@ -1767,10 +1785,10 @@
         <ObjectProperty IRI="#has_mass_spectrum"/>
     </Declaration>
     <Declaration>
-        <AnnotationProperty IRI="http://xmlns.com/foaf/0.1/name"/>
+        <NamedIndividual IRI="#d-tryptophan"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#d-tryptophan"/>
+        <AnnotationProperty IRI="http://xmlns.com/foaf/0.1/name"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#substituent_type_n_trifluoroacetyl"/>
@@ -1785,10 +1803,10 @@
         <DataProperty IRI="#has_extended_stereocode"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#carbohydrate_format_iupac_condensed"/>
+        <NamedIndividual IRI="#symbol_format_uoxf_bw"/>
     </Declaration>
     <Declaration>
-        <NamedIndividual IRI="#symbol_format_uoxf_bw"/>
+        <NamedIndividual IRI="#carbohydrate_format_iupac_condensed"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#ido"/>
@@ -1807,12 +1825,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#glycan_database"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="dc:date"/>
-    </Declaration>
-    <Declaration>
-        <AnnotationProperty abbreviatedIRI="dc:creator"/>
     </Declaration>
     <EquivalentClasses>
         <Class IRI="#Citation"/>
@@ -1871,12 +1883,28 @@
         <Class IRI="#evidence_lc"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Free-origosaccharide"/>
+        <Class IRI="#saccharide"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GSL-glycan"/>
+        <Class IRI="#saccharide"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Glycoprotein"/>
         <Class IRI="#glycoconjugate"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Glycosaminoglycan"/>
+        <Class IRI="#saccharide"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Glycosidase_Treatment"/>
         <Class IRI="#sample_preparation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Glycosphingolipid"/>
+        <Class IRI="#glycolipid"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Glycosylation_site"/>
@@ -6155,6 +6183,16 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Free-origosaccharide</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Free origosaccharide</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#GSL-glycan</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">GSL-glycan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Glycoprotein</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Glycoprotein</Literal>
     </AnnotationAssertion>
@@ -6163,6 +6201,16 @@
         <IRI>#Glycoprotein</IRI>
         <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Initial class name is capitalized.
 &quot;glycan:Glycoprotein</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Glycosaminoglycan</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Glycosaminoglycan</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#Glycosphingolipid</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">Glycosphingolipid</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

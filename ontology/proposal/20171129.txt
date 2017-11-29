@@ -1,0 +1,12 @@
+BH17.11
+
+## Proposal
+GSL-glycan subClassOf Saccharide
+Glycosaminoglycan subClassOf Saccharide
+Free-origosaccharide subClassOf Saccharide
+Glycosphingolipid subClassOf Glycolipid 
+
+## Question
+GSL or Glycosphingolipid
+GAG or Glycosaminoglycan
+fOS or free-origosaccharide
