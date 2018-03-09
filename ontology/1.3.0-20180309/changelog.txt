@@ -1,13 +1,16 @@
 # Add classes and properties
 
-Add new classes for subclass of Referenced coompound
-- glycan:Referenced_saccharide
-- glycan:Referenced_protein
+Add new classes
+- glycan:Referenced_saccharide (subclass of Referenced coompound)
+- glycan:Referenced_protein (subclass of Referenced coompound)
+- glycan:Glycoform
 
 Add new properties
 - sio:has-component-part
 - glycan:has_protein (subproperty of has-component-part)
 - glycan:has_lipid (subproperty of has-component-part)
+- glycan:has_glycoform
+- glycan:has_saccharide
 
 Modified property
 - glycosylates —> glycosylates_at
