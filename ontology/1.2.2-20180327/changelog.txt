@@ -1,0 +1,9 @@
+## Modified
+*  has_taxon
+  - range: Taxon (http://www.uniprot.org/core/Taxon)
+
+
+## Added
+* has_evidence_tyep
+  - domain: Evidence
+  - range: Evidence_type
