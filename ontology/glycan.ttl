@@ -16,7 +16,7 @@
                                                  "Rene Ranzinger"^^xsd:string ,
                                                  "Shujiro Okuda"^^xsd:string ,
                                                  "Kiyoko Aoki-Kinoshita"^^xsd:string ;
-                                      owl:versionInfo "1.2.1"^^xsd:string ;
+                                      owl:versionInfo "1.2.2"^^xsd:string ;
                                       dc:creator "Issaku Yamada"^^xsd:string ;
                                       dc:date "2013-02-10 23:11:00"^^xsd:dateTime ;
                                       dc:creator "Shin Kawano"^^xsd:string ,
@@ -291,6 +291,13 @@
               rdfs:domain :referenced_compound ;
               rdfs:range :evidence ;
               rdfs:comment "evidence for a given set of information (glycan, publication). An evidence can be any type of experimental data."^^xsd:string .
+
+
+###  http://purl.jp/bio/12/glyco/glycan#has_evidence_type
+:has_evidence_type rdf:type owl:ObjectProperty ;
+                   rdfs:domain :evidence ;
+                   rdfs:range :evidence_type ;
+                   rdfs:label "has evidence type"@en .
 
 
 ###  http://purl.jp/bio/12/glyco/glycan#has_exoglycosidase_chromatogram
@@ -664,6 +671,7 @@
 :has_taxon rdf:type owl:ObjectProperty ,
                     owl:FunctionalProperty ;
            rdfs:domain :source_natural ;
+           rdfs:range uniprot:Taxon ;
            rdfs:comment "Species information of the source."^^xsd:string .
 
 

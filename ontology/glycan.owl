@@ -35,7 +35,7 @@
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="owl:versionInfo"/>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">1.2.1</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">1.2.2</Literal>
     </Annotation>
     <Annotation>
         <AnnotationProperty abbreviatedIRI="dc:creator"/>
@@ -1744,6 +1744,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#talo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_evidence_type"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#glycosylates"/>
@@ -4270,6 +4273,10 @@
         <Class IRI="#referenced_compound"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_evidence_type"/>
+        <Class IRI="#evidence"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#has_exoglycosidase_chromatogram"/>
         <Class IRI="#lc_chromatogram"/>
     </ObjectPropertyDomain>
@@ -4731,6 +4738,10 @@
         <Class IRI="#evidence"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_evidence_type"/>
+        <Class IRI="#evidence_type"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#has_exoglycosidase_chromatogram"/>
         <Class IRI="#lc_digest_chromatogram"/>
     </ObjectPropertyRange>
@@ -4923,6 +4934,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#has_synthesis_type"/>
         <Class IRI="#synthetic_type"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_taxon"/>
+        <Class abbreviatedIRI="uniprot:Taxon"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#has_third_configuration"/>
@@ -8171,6 +8186,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#has_evidence</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">evidence for a given set of information (glycan, publication). An evidence can be any type of experimental data.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#has_evidence_type</IRI>
+        <Literal xml:lang="en" datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">has evidence type</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>

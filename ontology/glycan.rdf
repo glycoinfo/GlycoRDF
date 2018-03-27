@@ -17,7 +17,7 @@
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rene Ranzinger</dc:creator>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Shujiro Okuda</dc:creator>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Kiyoko Aoki-Kinoshita</dc:creator>
-        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.2.1</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1.2.2</owl:versionInfo>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Issaku Yamada</dc:creator>
         <dc:date rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2013-02-10 23:11:00</dc:date>
         <dc:creator rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Shin Kawano</dc:creator>
@@ -417,6 +417,16 @@
         <rdfs:domain rdf:resource="http://purl.jp/bio/12/glyco/glycan#referenced_compound"/>
         <rdfs:range rdf:resource="http://purl.jp/bio/12/glyco/glycan#evidence"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">evidence for a given set of information (glycan, publication). An evidence can be any type of experimental data.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.jp/bio/12/glyco/glycan#has_evidence_type -->
+
+    <owl:ObjectProperty rdf:about="http://purl.jp/bio/12/glyco/glycan#has_evidence_type">
+        <rdfs:domain rdf:resource="http://purl.jp/bio/12/glyco/glycan#evidence"/>
+        <rdfs:range rdf:resource="http://purl.jp/bio/12/glyco/glycan#evidence_type"/>
+        <rdfs:label xml:lang="en">has evidence type</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -955,6 +965,7 @@
     <owl:ObjectProperty rdf:about="http://purl.jp/bio/12/glyco/glycan#has_taxon">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://purl.jp/bio/12/glyco/glycan#source_natural"/>
+        <rdfs:range rdf:resource="http://www.uniprot.org/core/Taxon"/>
         <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Species information of the source.</rdfs:comment>
     </owl:ObjectProperty>
     
