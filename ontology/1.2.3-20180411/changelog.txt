@@ -1,0 +1,15 @@
+## Added
+* has_label
+* is_exoglycosidase_confirmed
+  - domain:Sample_Preparation
+
+* alpha_1-3,4 Fucosidase
+* alpha_1,3,6 Galactosidase
+ - range:Exoglycosidase Treatment
+
+* GlycoStore individual
+ - type:Glycan Database
+
+## Modified
+* Connections for Glycan Release an Glycosidase Treatment
+ 
