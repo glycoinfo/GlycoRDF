@@ -1167,6 +1167,9 @@
         <Class IRI="#reaction"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#is_exoglycosidase_confirmed"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#substituent_type_x_pyruvate"/>
     </Declaration>
     <Declaration>
@@ -3313,6 +3316,14 @@
         <Class IRI="#relative_configuration"/>
         <NamedIndividual IRI="#xylo"/>
     </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Glycosidase_Treatment"/>
+        <NamedIndividual IRI="#alpha1-3,_6_Galactosidase"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Glycosidase_Treatment"/>
+        <NamedIndividual IRI="#alpha1-3,4_Fucosidase"/>
+    </ClassAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#has_absolute_configuration"/>
         <NamedIndividual IRI="#alanine"/>
@@ -4552,6 +4563,10 @@
         <Class IRI="#resource_entry"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#is_exoglycosidase_confirmed"/>
+        <Class IRI="#sample_preparation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#is_from_profile"/>
         <Class IRI="#evidence"/>
     </ObjectPropertyDomain>
@@ -4987,6 +5002,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#in_glycan_database"/>
         <Class IRI="#glycan_database"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#is_exoglycosidase_confirmed"/>
+        <Class IRI="#Glycosidase_Treatment"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#is_from_profile"/>
@@ -8680,6 +8699,11 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#is_exoglycosidase_confirmed</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Saccaharide was cofirmed by exoglycosidase digestions. This can be a yes or no comment.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#is_fragment</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">If the synthesised or modeled molecule is just a fragment or the complete target molecule</Literal>
     </AnnotationAssertion>
@@ -10091,7 +10115,7 @@ Note (2): The GLYCAM notation is not yet supported by the notation parsing routi
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#alpha1-3,_6_Galactosidase</IRI>
-        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">alpha1-3, 6 Galactosidase</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">alpha1-3,6 Galactosidase</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
