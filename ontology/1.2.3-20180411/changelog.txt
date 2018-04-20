@@ -10,6 +10,9 @@
 * GlycoStore individual
  - type:Glycan Database
 
+* LC Device
+* has_lc_model
+
 ## Modified
 * Connections for Glycan Release an Glycosidase Treatment
  
