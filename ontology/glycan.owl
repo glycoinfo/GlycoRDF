@@ -300,6 +300,9 @@
         <Class IRI="#polymerization_degree"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#has_lc_model"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#is_from_report"/>
     </Declaration>
     <Declaration>
@@ -573,6 +576,9 @@
         <Class IRI="#CE_Digest_Electrogram"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#has_mobile_phase"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#ribo"/>
     </Declaration>
     <Declaration>
@@ -660,6 +666,9 @@
         <Class IRI="#ms_peak"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#LC_Device"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#lyxo"/>
     </Declaration>
     <Declaration>
@@ -727,6 +736,9 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#d-leucine"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#has_mobile_phase"/>
     </Declaration>
     <Declaration>
         <Class IRI="#N-glycan"/>
@@ -1896,6 +1908,10 @@
     <SubClassOf>
         <Class IRI="#Glycosylation_site"/>
         <Class abbreviatedIRI="uniprot:Glycosylation_Annotation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LC_Device"/>
+        <Class IRI="#lc_property"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#Label"/>
@@ -4391,6 +4407,10 @@
         <Class IRI="#lc_chromatogram"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_lc_model"/>
+        <Class IRI="#LC_Device"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#has_linkage_type"/>
         <Class IRI="#substituent_linkage"/>
     </ObjectPropertyDomain>
@@ -5088,6 +5108,10 @@
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
     <SubDataPropertyOf>
+        <DataProperty IRI="#has_mobile_phase"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
         <DataProperty IRI="#has_phase_description"/>
         <DataProperty abbreviatedIRI="owl:topDataProperty"/>
     </SubDataPropertyOf>
@@ -5479,6 +5503,14 @@
     <DataPropertyDomain>
         <DataProperty IRI="#has_missing_signals_min"/>
         <Class IRI="#evidence_nmr"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#has_mobile_phase"/>
+        <Class IRI="#evidence_lc"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#has_mobile_phase"/>
+        <Class IRI="#lc_column"/>
     </DataPropertyDomain>
     <DataPropertyDomain>
         <DataProperty IRI="#has_model"/>
@@ -6243,6 +6275,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#H2O</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Water</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#LC_Device</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">LC Device</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -8366,6 +8403,16 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#has_method</IRI>
         <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">experimental procedures described in the article</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#has_mobile_phase</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">Decription of LC mobile phase(s).</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#has_mobile_phase</IRI>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#string">has_mobile_phase</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
