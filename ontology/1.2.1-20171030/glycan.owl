@@ -8,7 +8,7 @@
 @prefix bibo: <http://purl.org/ontology/bibo/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix uniprot: <http://www.uniprot.org/core/> .
+@prefix uniprot: <http://purl.uniprot.org/core/> .
 @base <http://purl.jp/bio/12/glyco/glycan> .
 
 <http://purl.jp/bio/12/glyco/glycan> rdf:type owl:Ontology ;
