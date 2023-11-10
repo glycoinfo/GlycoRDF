@@ -500,6 +500,9 @@
         <ObjectProperty IRI="#has_anomer"/>
     </Declaration>
     <Declaration>
+        <ObjectProperty IRI="#has_archetype"/>
+    </Declaration>
+    <Declaration>
         <ObjectProperty IRI="#has_association"/>
     </Declaration>
     <Declaration>
@@ -723,6 +726,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#in_glycan_database"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#is_archetype_of"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#is_from_profile"/>
@@ -4139,6 +4145,10 @@
         <Class IRI="#basetype"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_archetype"/>
+        <Class IRI="#Saccharide"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#has_association"/>
         <Class IRI="#Referenced_compound"/>
     </ObjectPropertyDomain>
@@ -4447,6 +4457,10 @@
         <Class IRI="#resource_entry"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#is_archetype_of"/>
+        <Class IRI="#Archetype"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#is_from_profile"/>
         <Class IRI="#evidence"/>
     </ObjectPropertyDomain>
@@ -4569,6 +4583,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#has_anomer"/>
         <Class IRI="#anomer"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_archetype"/>
+        <Class IRI="#Archetype"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#has_basetype"/>
@@ -4833,6 +4851,10 @@
     <ObjectPropertyRange>
         <ObjectProperty IRI="#in_glycan_database"/>
         <Class IRI="#glycan_database"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#is_archetype_of"/>
+        <Class IRI="#Saccharide"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#is_from_profile"/>
