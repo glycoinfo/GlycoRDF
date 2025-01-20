@@ -80,6 +80,9 @@
         <Class IRI="#CE_Property"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#CarbohydrateFormat"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Citation"/>
     </Declaration>
     <Declaration>
@@ -98,6 +101,12 @@
         <Class IRI="#Evidence_UPLC"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#Glycam"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#GlycoCT"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Glycogene"/>
     </Declaration>
     <Declaration>
@@ -110,7 +119,16 @@
         <Class IRI="#Glycosylation_site"/>
     </Declaration>
     <Declaration>
+        <Class IRI="#IupacCondensed"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#IupacExtended"/>
+    </Declaration>
+    <Declaration>
         <Class IRI="#Label"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#LinearCode"/>
     </Declaration>
     <Declaration>
         <Class IRI="#N-glycan"/>
@@ -126,6 +144,9 @@
     </Declaration>
     <Declaration>
         <Class IRI="#Source_natural"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Wurcs"/>
     </Declaration>
     <Declaration>
         <Class IRI="#absolute_configuration"/>
@@ -156,9 +177,6 @@
     </Declaration>
     <Declaration>
         <Class IRI="#buffer"/>
-    </Declaration>
-    <Declaration>
-        <Class IRI="#carbohydrate_format"/>
     </Declaration>
     <Declaration>
         <Class IRI="#chemical_release"/>
@@ -579,6 +597,9 @@
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#has_glycan"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#has_glycan_format"/>
     </Declaration>
     <Declaration>
         <ObjectProperty IRI="#has_glycoconjugate_sequence"/>
@@ -1882,6 +1903,14 @@
         <Class IRI="#evidence_lc"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#Glycam"/>
+        <Class IRI="#CarbohydrateFormat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#GlycoCT"/>
+        <Class IRI="#CarbohydrateFormat"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Glycoprotein"/>
         <Class IRI="#glycoconjugate"/>
     </SubClassOf>
@@ -1894,8 +1923,20 @@
         <Class abbreviatedIRI="uniprot:Glycosylation_Annotation"/>
     </SubClassOf>
     <SubClassOf>
+        <Class IRI="#IupacCondensed"/>
+        <Class IRI="#CarbohydrateFormat"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#IupacExtended"/>
+        <Class IRI="#CarbohydrateFormat"/>
+    </SubClassOf>
+    <SubClassOf>
         <Class IRI="#Label"/>
         <Class IRI="#sample_preparation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#LinearCode"/>
+        <Class IRI="#CarbohydrateFormat"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#N-glycan"/>
@@ -1912,6 +1953,10 @@
     <SubClassOf>
         <Class IRI="#Source_natural"/>
         <Class IRI="#source"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Wurcs"/>
+        <Class IRI="#CarbohydrateFormat"/>
     </SubClassOf>
     <SubClassOf>
         <Class IRI="#absolute_configuration"/>
@@ -2272,6 +2317,14 @@
         <Class IRI="#aglycon"/>
     </SubClassOf>
     <DisjointClasses>
+        <Class IRI="#Glycam"/>
+        <Class IRI="#GlycoCT"/>
+        <Class IRI="#IupacCondensed"/>
+        <Class IRI="#IupacExtended"/>
+        <Class IRI="#LinearCode"/>
+        <Class IRI="#Wurcs"/>
+    </DisjointClasses>
+    <DisjointClasses>
         <Class IRI="#lipid"/>
         <ObjectUnionOf>
             <Class IRI="#peptide"/>
@@ -2473,47 +2526,47 @@
         <NamedIndividual IRI="#beta_elimination"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_carbbank"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_csdb"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_glycoct"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_glyde2"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_iupac_condensed"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_iupac_extended"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_iupac_short"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_kcf"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_linearcode"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_linucs"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#carbohydrate_format_wurcs"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -3261,7 +3314,7 @@
         <NamedIndividual IRI="#tyrosine"/>
     </ClassAssertion>
     <ClassAssertion>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
         <NamedIndividual IRI="#uoxf"/>
     </ClassAssertion>
     <ClassAssertion>
@@ -4255,6 +4308,13 @@
         <Class IRI="#referenced_compound"/>
     </ObjectPropertyDomain>
     <ObjectPropertyDomain>
+        <ObjectProperty IRI="#has_glycan_format"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#has_glycan_format"/>
+            <Class IRI="#Saccharide"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
         <ObjectProperty IRI="#has_glycoconjugate_sequence"/>
         <Class IRI="#motif"/>
     </ObjectPropertyDomain>
@@ -4677,6 +4737,13 @@
         <Class IRI="#msn_spectrum"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
+        <ObjectProperty IRI="#has_glycan_format"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty IRI="#has_glycan_format"/>
+            <Class IRI="#CarbohydrateFormat"/>
+        </ObjectSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
         <ObjectProperty IRI="#has_glycoconjugate_sequence"/>
         <Class IRI="#glycoconjugate_sequence"/>
     </ObjectPropertyRange>
@@ -4846,7 +4913,7 @@
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#in_carbohydrate_format"/>
-        <Class IRI="#carbohydrate_format"/>
+        <Class IRI="#CarbohydrateFormat"/>
     </ObjectPropertyRange>
     <ObjectPropertyRange>
         <ObjectProperty IRI="#in_glycan_database"/>
@@ -5994,6 +6061,16 @@
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#CarbohydrateFormat</IRI>
+        <Literal>Instances of this class are the carbohydrate sequence formats. </Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <IRI>#CarbohydrateFormat</IRI>
+        <Literal>Carbohydrate Format</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#Citation</IRI>
         <Literal xml:lang="en">Initial class name is capitalized.
 &quot;glycan:Citation&quot;</Literal>
@@ -6054,6 +6131,16 @@
         <Literal>Evidence UPLC</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Glycam</IRI>
+        <Literal>This class depicts a GlyCAM format of glycans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#GlycoCT</IRI>
+        <Literal>This class depicts a GlycoCT format of glycans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Glycoprotein</IRI>
         <Literal xml:lang="en">Glycoprotein</Literal>
@@ -6078,6 +6165,21 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#H2O</IRI>
         <Literal>Water</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#IupacCondensed</IRI>
+        <Literal>This class depicts a IUPAC condensed format of glycans</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#IupacExtended</IRI>
+        <Literal>This class depicts a IUPAC Extended format of glycans.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#LinearCode</IRI>
+        <Literal>This class depicts a Linear Code format of glycans</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -6150,6 +6252,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
         <IRI>#Source_natural</IRI>
         <Literal xml:lang="en">Source Natural</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#Wurcs</IRI>
+        <Literal>This class depicts a WURCS format of glycans</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
@@ -6540,16 +6647,6 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#captured_by</IRI>
         <Literal>Object is compounds that have affinity to glycan or glycoconjugate.</Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
-        <IRI>#carbohydrate_format</IRI>
-        <Literal>Instances of this class are the carbohydrate sequence formats. </Literal>
-    </AnnotationAssertion>
-    <AnnotationAssertion>
-        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
-        <IRI>#carbohydrate_format</IRI>
-        <Literal>Carbohydrate Format</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:label"/>
@@ -8110,6 +8207,11 @@
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
         <IRI>#has_glycan</IRI>
         <Literal>The glycan object referenced by this subject.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <IRI>#has_glycan_format</IRI>
+        <Literal>This object property links Glycan class  to glycanFormat class</Literal>
     </AnnotationAssertion>
     <AnnotationAssertion>
         <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
